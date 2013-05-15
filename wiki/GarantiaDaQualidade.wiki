@@ -1,0 +1,7 @@
+A Planilha com a lista dos artefatos pode ser acessada:
+
+https://code.google.com/p/avadoc-012013/source/browse/trunk/Garantia%20da%20Qualidade/Planilha_MpsBR_Artefatos.xlsx
+
+O Plano da Garantia da Qualidade pode ser acessado:
+
+https://code.google.com/p/avadoc-012013/source/browse/trunk/Garantia+da+Qualidade/PGQ_SAD_vers%C3%A3o1.doc
