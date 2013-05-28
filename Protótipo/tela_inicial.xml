@@ -1,0 +1,107 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="756" measuredH="616" mockupW="712" mockupH="511">
+  <controls>
+    <control controlID="83" controlTypeID="__group__" x="44" y="105" w="712" h="511" measuredW="712" measuredH="511" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="712" h="511" measuredW="712" measuredH="511" zOrder="0" locked="false" isInGroup="83">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="712" h="511" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>SAD%20-%20Sistema%20de%20Avalia%E7%E3o%20do%20Docente%0Ahttp%3A//www.fs.inf.br/sad</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="0" y="152" w="710" h="334" measuredW="200" measuredH="272" zOrder="1" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>In%EDcio%0AAvalia%E7%E3o%20do%20Docente%0AInforma%E7%E3o%20do%20Docente%0AHist%F3rico%20do%20Docente%0AImportar/Exportar%20dados%0AConfigura%E7%F5es%0AAjuda</text>
+              </controlProperties>
+            </control>
+            <control controlID="2" controlTypeID="com.balsamiq.mockups::HRule" x="0" y="149" w="690" h="-1" measuredW="100" measuredH="10" zOrder="2" locked="false" isInGroup="0"/>
+            <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="621" y="76" w="-1" h="-1" measuredW="61" measuredH="21" zOrder="3" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>Vers%E3o%201.0</text>
+              </controlProperties>
+            </control>
+            <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="620" y="124" w="-1" h="-1" measuredW="63" measuredH="27" zOrder="4" locked="false" isInGroup="0">
+              <controlProperties>
+                <menuIcon>false</menuIcon>
+                <text>Logout</text>
+              </controlProperties>
+            </control>
+            <control controlID="5" controlTypeID="com.balsamiq.mockups::PointyButton" x="558" y="124" w="-1" h="-1" measuredW="54" measuredH="27" zOrder="5" locked="false" isInGroup="0">
+              <controlProperties>
+                <direction>left</direction>
+                <text>Voltar</text>
+              </controlProperties>
+            </control>
+            <control controlID="6" controlTypeID="__group__" x="284" y="209" w="283" h="107" measuredW="283" measuredH="107" zOrder="6" locked="false" isInGroup="0">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="283" h="107" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="6"/>
+                <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="78" y="21" w="-1" h="-1" measuredW="190" measuredH="21" zOrder="1" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <text>H%E1%2015%20docentes%20sendo%20avaliados</text>
+                  </controlProperties>
+                </control>
+                <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="15" y="15" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="2" locked="false" isInGroup="6"/>
+                <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="87" y="63" w="-1" h="-1" measuredW="149" measuredH="21" zOrder="3" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <text>-%207%20em%20est%E1gio%20probat%F3rio</text>
+                  </controlProperties>
+                </control>
+                <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="87" y="43" w="-1" h="-1" measuredW="172" measuredH="21" zOrder="4" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <text>-%2011%20em%20progress%E3o%20horizontal</text>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+            <control controlID="7" controlTypeID="com.balsamiq.mockups::SubTitle" x="396" y="167" w="-1" h="-1" measuredW="58" measuredH="27" zOrder="7" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>In%EDcio</text>
+              </controlProperties>
+            </control>
+            <control controlID="8" controlTypeID="com.balsamiq.mockups::IconLabel" x="171" y="403" w="-1" h="-1" measuredW="48" measuredH="63" zOrder="8" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>SICAD</text>
+              </controlProperties>
+            </control>
+            <control controlID="9" controlTypeID="com.balsamiq.mockups::IconLabel" x="232" y="403" w="-1" h="-1" measuredW="52" measuredH="63" zOrder="9" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>UFGNET</text>
+              </controlProperties>
+            </control>
+            <control controlID="10" controlTypeID="com.balsamiq.mockups::IconLabel" x="359" y="403" w="-1" h="-1" measuredW="50" measuredH="63" zOrder="10" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>Webmail</text>
+              </controlProperties>
+            </control>
+            <control controlID="11" controlTypeID="com.balsamiq.mockups::IconLabel" x="424" y="403" w="-1" h="-1" measuredW="57" measuredH="63" zOrder="11" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>Biblioteca</text>
+              </controlProperties>
+            </control>
+            <control controlID="12" controlTypeID="com.balsamiq.mockups::IconLabel" x="296" y="403" w="-1" h="-1" measuredW="48" measuredH="63" zOrder="12" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>EAD</text>
+              </controlProperties>
+            </control>
+            <control controlID="13" controlTypeID="com.balsamiq.mockups::IconLabel" x="497" y="403" w="-1" h="-1" measuredW="120" measuredH="63" zOrder="13" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>F%E1brica%20de%20Software</text>
+              </controlProperties>
+            </control>
+            <control controlID="14" controlTypeID="com.balsamiq.mockups::IconLabel" x="627" y="403" w="-1" h="-1" measuredW="71" measuredH="63" zOrder="14" locked="false" isInGroup="0">
+              <controlProperties>
+                <text>Outros%20links</text>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::SubTitle" x="101" y="102" w="-1" h="-1" measuredW="366" measuredH="27" zOrder="1" locked="false" isInGroup="83">
+          <controlProperties>
+            <text>Sistema%20de%20Avalia%E7%E3o%20do%20Docente</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="28" y="87" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="2" locked="false" isInGroup="83"/>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
