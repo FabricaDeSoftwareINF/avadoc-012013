@@ -1,0 +1,142 @@
+
+Importing Model from XMI
+Adding datatype String
+Adding datatype Date
+Adding datatype int
+Adding datatype List<IAtividade>
+Adding datatype List<DisciplinaMinistrada>
+Adding datatype void()
+Adding datatype void
+Adding datatype processo
+Adding datatype boolean
+Adding datatype long
+Adding datatype double
+Adding datatype String
+Adding datatype Date
+Adding datatype int
+Adding datatype List<IAtividade>
+Adding datatype List<DisciplinaMinistrada>
+Adding datatype void()
+Adding datatype void
+Adding datatype processo
+Adding datatype boolean
+Adding datatype long
+Adding datatype double
+Root Package: Component View
+Root Package: Use Case View
+Add Classifier: Utils
+Add Classifier: ExtratoAtividades
+Add Classifier: AvaliacaoDiscente
+Add Classifier: ExportadorProgressaoHorizontal
+Add Classifier: IExportador
+Add Classifier: ExportadorEstagioProbatorio
+Add Classifier: AvaliacaoDocente
+Add Classifier: Docente
+Add Classifier: AtividadeAdministrativaRepresentacao
+Add Classifier: ProducaoIntelectual
+Add Classifier: AtividadeEnsino
+Add Classifier: AtividadeOutra
+Add Classifier: AtividadePesquisaExtensao
+Add Classifier: IAtividade
+Add Classifier: IImportador
+Add Classifier: DisciplinaMinistrada
+Add Classifier: ImportadorExtratoAtividades
+Add Classifier: ImportadorAvaliacaoDiscente
+Add Classifier: UnidadeDepartamento
+Add Classifier: String
+Add Classifier: Date
+Add Classifier: int
+Add Classifier: List<IAtividade>
+Add Classifier: List<DisciplinaMinistrada>
+Add Classifier: void()
+Add Classifier: void
+Add Classifier: processo
+Add Classifier: boolean
+Add Classifier: long
+Add Classifier: double
+Resolving Classifiers
+Resolve Package Links
+Add Diagrams
+Adding diagram: Main
+Adding diagram: Main
+Adding diagram: Controle
+Adding diagram: Modelo
+Adding diagram: Modelo-Atividade
+Adding diagram: Main
+Adding diagram objects
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Adding diagram object
+Resolving connections
+Add association
+Add abstraction
+Add abstraction
+Add association
+Add association
+Add abstraction
+Add abstraction
+Add abstraction
+Add abstraction
+Add abstraction
+Add association
+Add association
+Add association
+Add abstraction
+Add abstraction
+Add diagram links
+Adding visible connector - 15
+Adding visible connector - 14
+Adding visible connector - 3
+Adding visible connector - 2
+Adding visible connector - 13
+Adding visible connector - 12
+Adding visible connector - 11
+Adding visible connector - 5
+Adding visible connector - 1
+Adding visible connector - 10
+Adding visible connector - 9
+Adding visible connector - 8
+Adding visible connector - 7
+Adding visible connector - 6
+Add notes
+Add diagram links
+Add stereotypes
+Adding tagged values
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Adding tagged values (attribute)
+Import Complete!
