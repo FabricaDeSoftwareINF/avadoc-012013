@@ -1,0 +1,75 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="756" measuredH="616" mockupW="712" mockupH="511">
+  <controls>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::SubTitle" x="145" y="207" w="-1" h="-1" measuredW="366" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sistema%20de%20Avalia%E7%E3o%20do%20Docente</text>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::Icon" x="72" y="192" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="8" locked="false" isInGroup="-1"/>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="44" y="105" w="712" h="511" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>SAD%20-%20Sistema%20de%20Avalia%E7%E3o%20do%20Docente%0Ahttp%3A//www.fs.inf.br/sad</text>
+      </controlProperties>
+    </control>
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="44" y="257" w="710" h="334" measuredW="200" measuredH="272" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>In%EDcio%0AAvalia%E7%E3o%20do%20Docente%0AInforma%E7%E3o%20do%20Docente%0AHist%F3rico%20do%20Docente%0AImportar/Exportar%20dados%0AConfigura%E7%F5es%0AAjuda</text>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::HRule" x="44" y="254" w="690" h="-1" measuredW="100" measuredH="10" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::Label" x="665" y="181" w="-1" h="-1" measuredW="61" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Vers%E3o%201.0</text>
+      </controlProperties>
+    </control>
+    <control controlID="91" controlTypeID="com.balsamiq.mockups::Button" x="664" y="229" w="-1" h="-1" measuredW="63" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <menuIcon>false</menuIcon>
+        <text>Logout</text>
+      </controlProperties>
+    </control>
+    <control controlID="92" controlTypeID="com.balsamiq.mockups::PointyButton" x="602" y="229" w="-1" h="-1" measuredW="54" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Voltar</text>
+      </controlProperties>
+    </control>
+    <control controlID="94" controlTypeID="com.balsamiq.mockups::SubTitle" x="348" y="272" w="-1" h="-1" measuredW="293" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Importar%20/%20Exportar%20Dados</text>
+      </controlProperties>
+    </control>
+    <control controlID="108" controlTypeID="com.balsamiq.mockups::Label" x="611" y="181" w="-1" h="-1" measuredW="45" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Herpino</text>
+      </controlProperties>
+    </control>
+    <control controlID="115" controlTypeID="com.balsamiq.mockups::ComboBox" x="331" y="325" w="-1" h="-1" measuredW="98" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>closed</state>
+        <text>Importa%E7%E3o%0AExporta%E7%E3o</text>
+      </controlProperties>
+    </control>
+    <control controlID="116" controlTypeID="com.balsamiq.mockups::Label" x="213" y="327" w="-1" h="-1" measuredW="103" measuredH="21" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tipo%20de%20opera%E7%E3o</text>
+      </controlProperties>
+    </control>
+    <control controlID="117" controlTypeID="com.balsamiq.mockups::Label" x="213" y="364" w="-1" h="-1" measuredW="77" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Arquivo%20XML%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="118" controlTypeID="com.balsamiq.mockups::TextInput" x="331" y="361" w="395" h="-1" measuredW="79" measuredH="26" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="119" controlTypeID="com.balsamiq.mockups::Button" x="425" y="418" w="-1" h="-1" measuredW="101" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>DownArrowIcon%7Csmall</icon>
+        <text>Importar</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
