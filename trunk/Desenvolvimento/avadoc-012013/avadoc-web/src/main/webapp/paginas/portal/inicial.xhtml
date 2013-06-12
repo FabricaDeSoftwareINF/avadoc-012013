@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="icones">
+
+		<div class="icones">
+
+			<h:panelGrid columns="2" style="margin-left: auto;"
+				styleClass="noPrint">
+
+				<h:outputText value="Bem vindo, #{secAuth.usuarioLogado.nome}"
+					style="margin-right: 100px; color: white;" />
+
+				<h:outputLink
+					value="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
+
+					<h:panelGrid columns="2">
+
+						<h:outputText value="Sair" />
+
+						<h:graphicImage value="/img/sair.png" width="48" height="48" />
+
+					</h:panelGrid>
+
+				</h:outputLink>
+
+			</h:panelGrid>
+
+		</div>
+
+	</ui:define>
+
+	<ui:define name="conteudo">
+		
+			Hello  World Pra vcs
+	</ui:define>
+
+</ui:composition>
+
+</html>
