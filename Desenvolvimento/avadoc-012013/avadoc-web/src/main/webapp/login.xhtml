@@ -107,7 +107,7 @@
 			
 			<h:form id="formAlerta">
 			
-				<p:dialog id="alertDialog" header="Alerta" visible="#{visibleAlertDialog}" widgetVar="dialogAlerta"  closable="false" resizable="false" draggable="false" modal="true" onShow="jQuery('.btnOK').focus();">
+				<p:dialog id="alertDialog" appendToBody="true" header="Alerta" visible="#{visibleAlertDialog}" widgetVar="dialogAlerta"  closable="false" resizable="false" draggable="false" modal="true" onShow="jQuery('.btnOK').focus();">
 		
 					<h:panelGrid columns="1" styleClass="alerta" style="text-align:center; width: 320px !important; height: 100px;">
 					
@@ -115,7 +115,7 @@
 						
 						<p:spacer height="10"/>	
 						
-						<p:commandButton id="btnOk" styleClass="btnOK" value="Ok" ajax="false" style="width: 100px;" oncomplete="alertDialog.hide()"> 
+						<p:commandButton id="btnOk" styleClass="btnOK" value="Ok" onclick="dialogAlerta.hide();" ajax="false" style="width: 100px;" oncomplete="alertDialog.hide()"> 
 						 	
 						 	<f:setPropertyActionListener target="#{visibleAlertDialog}" value="false" />
 
