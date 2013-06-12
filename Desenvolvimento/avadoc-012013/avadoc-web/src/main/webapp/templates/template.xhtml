@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html; charset=UTF-8" encoding="UTF-8">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+                <title>Avadoc.</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <p:layout fullPage="true">
+            
+                <p:layoutUnit position="north" size="105">
+                
+                    <h:form>
+                       Topo da Página Podera ficar os menus
+                       
+                       <ui:insert name="icones" />
+						
+                    </h:form>
+                    
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="70">
+                
+                    <div align="center">
+                    	Rodape
+                    </div>
+                    
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                
+                    <ui:insert name="conteudo" />
+                    
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
