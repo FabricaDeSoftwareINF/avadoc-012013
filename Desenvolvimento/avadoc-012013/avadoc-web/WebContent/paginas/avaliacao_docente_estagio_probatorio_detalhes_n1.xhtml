@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+	
+	<ui:composition template="../templates/template.xhtml">
+		
+		<ui:define name="conteudo">
+		
+		<h2 style="text-align: center;">Estágio Probatório - [Professor] - Detalhes N1</h2>
+		
+		<table>
+			<tbody>
+				<tr>
+					<td>Item I - Atividades de Ensino</td>
+					<td><input type="text" id="notaItem1" /></td>
+					<td><input type="button" value="Detalhes"></input></td>
+				</tr>
+				<tr>
+					<td>Item II - Produção Intelectual</td>
+					<td><input type="text" id="notaItem2" /></td>
+					<td><input type="button" value="Detalhes"></input></td>
+				</tr>
+				<tr>
+					<td>Item III - Atividades de Pesquisa e Extensão</td>
+					<td><input type="text" id="notaItem3" /></td>
+					<td><input type="button" value="Detalhes"></input></td>
+				</tr>
+				<tr>
+					<td>Item IV - Atividades Administrativas e de Representação</td>
+					<td><input type="text" id="notaItem4" /></td>
+					<td><input type="button" value="Detalhes"></input></td>
+				</tr>
+				<tr>
+					<td>Item V - Outras Atividades</td>
+					<td><input type="text" id="notaItem5" /></td>
+					<td><input type="button" value="Detalhes"></input></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><a href="#">Voltar</a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		</ui:define>
+	
+	</ui:composition>
+
+</html>
