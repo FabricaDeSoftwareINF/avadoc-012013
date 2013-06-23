@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+	
+	<ui:composition template="../templates/template.xhtml">
+		
+		<ui:define name="conteudo">
+		
+		<p style="text-align: center;">Estágio Probatório - [Nome do Professor]</p>
+		
+		<table style="width:100%;">
+			<thead>
+				<tr>
+					<td style="width: 33%;"></td>
+					<td style="width: 33%;"></td>
+					<td style="width: 33%;"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Notas das atividades (N1)</td>
+					<td><input type="text" name="notasDasAtividades"></input></td>
+					<td><input type="button" value="Detalhes"></input></td>
+				</tr>
+				<tr>
+					<td>Nota da Diretoria (N2)</td>
+					<td><input type="text" name="notaDaDiretoria"></input></td>
+				</tr>
+				<tr>
+					<td>Nota do Corpo Docente (N3)</td>
+					<td><input type="text" name="notaDoCorpoDocente"></input></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<hr></hr>
+					</td>
+				</tr>
+				<tr>
+					<td>Nota Parcial</td>
+					<td><input type="text" name="notaParcial"></input></td>
+				</tr>
+				<tr>
+					<td>Período Avaliativo</td>
+					<td><input type="text" name="periodoAvaliativo"></input></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		</ui:define>
+	
+	</ui:composition>
+
+</html>
