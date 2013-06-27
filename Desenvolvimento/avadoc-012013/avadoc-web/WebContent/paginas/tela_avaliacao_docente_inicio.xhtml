@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+	
+	<ui:composition template="../templates/template.xhtml">
+		
+		<ui:define name="conteudo">
+		
+		<h2 style="text-align: center;">Avaliação do Docente</h2>
+		
+		<table style="width: 100%">
+			<tbody>
+				<tr>
+					<td>Selecione o docente a ser avaliado</td>
+					<td>
+						<select id="listaDeDocentes">
+							<option value="0">Docente 1</option>
+							<option value="0">Docente 2</option>
+							<option value="0">Docente 3</option>
+							<option value="0">Docente 4</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Tipo de avaliação</td>
+					<td>
+						<select id="listaDeTiposDeAvaliacao">
+							<option value="0">Tipo 1</option>
+							<option value="0">Tipo 2</option>
+							<option value="0">Tipo 3</option>
+							<option value="0">Tipo 4</option>
+						</select>
+					</td>
+				</tr>
+				<tr style="text-align: center">
+					<td colspan="2">
+						<input type="button" value="Avaliar" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		</ui:define>
+	
+	</ui:composition>
+
+</html>
