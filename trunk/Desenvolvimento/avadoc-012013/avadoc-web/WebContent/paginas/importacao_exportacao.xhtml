@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+	
+	<ui:composition template="../templates/template.xhtml">
+		
+		<ui:define name="conteudo">
+		
+		<h2 style="text-align: center;">Importar / Exportar Dados</h2>
+		
+		<table>
+			<tbody>>
+				<tr>
+					<td>Tipo de operação:</td>
+					<td>
+				    <select id="TipoOperacao">
+				    	<option>Importação</option>
+				    	<option>Exportação</option>
+				    </select>
+				    </td>
+				</tr>
+				
+				<!-- TODO: as informações sobre o docente devem ser ocultas no modo de importação. -->
+				<tr>
+					<td>Docente</td>
+					<select id="Docente">
+						<!-- Carregar os docentes cadastrados. -->
+					</select>
+				</tr>
+				<tr>
+					 <td>Arquivo XML</td>
+					 <td>
+					 	<input type="text" id="ArquivoXML" />
+					 </td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="button" value="Salvar" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		</ui:define>
+	
+	</ui:composition>
+
+</html>
