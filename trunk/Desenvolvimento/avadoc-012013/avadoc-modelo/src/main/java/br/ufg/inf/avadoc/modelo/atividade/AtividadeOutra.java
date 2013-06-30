@@ -1,12 +1,17 @@
 package br.ufg.inf.avadoc.modelo.atividade;
 
+import java.io.Serializable;
+
+import javax.persistence.Id;
+
 /**
  * AtividadeOutra
  * 
  * Outras atividades
  * 
  */
-public class AtividadeOutra implements IAtividade {
+public class AtividadeOutra implements IAtividade, Serializable {
+	private static final long serialVersionUID = 5832616413995668556L;
 	/**
 	 * Atividades Acadêmicas - Orientação
 	 */
@@ -19,11 +24,32 @@ public class AtividadeOutra implements IAtividade {
 	 * Atividades de Aprendizado e Aperfeiçoamento
 	 */
 	private Producao aprendizadoAperfeicoamento;
+	/**
+	 * Id da atividade
+	 */
+	private Long id;
 	
 	public AtividadeOutra(){
 		orientacao = new Producao();
 		bancaCurso = new Producao();
 		aprendizadoAperfeicoamento = new Producao();
+	}
+	
+	/**
+	 * Retorna Id da atividade
+	 * @return id
+	 */
+	@Id
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * Altera Id da atividade
+	 * @param id
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override

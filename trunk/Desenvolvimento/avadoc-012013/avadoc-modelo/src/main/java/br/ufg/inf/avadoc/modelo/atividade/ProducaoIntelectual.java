@@ -1,12 +1,20 @@
 package br.ufg.inf.avadoc.modelo.atividade;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * ProducaoIntelectual
  * 
  * Atividades e artefatos referentes a Produção Intelectual
  * 
  */
-public class ProducaoIntelectual implements IAtividade {
+@Entity
+public class ProducaoIntelectual implements IAtividade, Serializable {
+	private static final long serialVersionUID = -8781139957824478900L;
+	
 	/**
 	 * Produçao Científica
 	 */
@@ -23,12 +31,34 @@ public class ProducaoIntelectual implements IAtividade {
 	 * Outros tipos de produção
 	 */
 	private Producao producaoOutra;
+
+	/**
+	 * Id da atividade
+	 */
+	private Long id;
 	
 	public ProducaoIntelectual(){
 		producaoCientifica = new Producao();
 		producaoArtisticaCultural = new Producao();
 		producaoTecnicaTecnologica = new Producao();
 		producaoOutra = new Producao();
+	}
+	
+	/**
+	 * Retorna Id da atividade
+	 * @return id
+	 */
+	@Id
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * Altera Id da atividade
+	 * @param id
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override

@@ -1,5 +1,10 @@
 package br.ufg.inf.avadoc.modelo.atividade;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * AtividadeAdministrativaRepresentacao
  * 
@@ -7,7 +12,9 @@ package br.ufg.inf.avadoc.modelo.atividade;
  * representação
  * 
  */
-public class AtividadeAdministrativaRepresentacao implements IAtividade {
+@Entity
+public class AtividadeAdministrativaRepresentacao implements IAtividade, Serializable {
+	private static final long serialVersionUID = -7989496005881283847L;
 	/**
 	 * Atividades de direção ou de função gratificada
 	 */
@@ -24,12 +31,33 @@ public class AtividadeAdministrativaRepresentacao implements IAtividade {
 	 * Atividades de representação fora da UFG
 	 */
 	private Producao representacaoFora;
+	/**
+	 * Id da atividade
+	 */
+	private Long id;
 	
 	public AtividadeAdministrativaRepresentacao(){
 		direcaoFuncaoGratificada = new Producao();
 		administrativa = new Producao();
 		outraAdministrativa = new Producao();
 		representacaoFora = new Producao();
+	}
+	
+	/**
+	 * Retorna Id da atividade
+	 * @return id
+	 */
+	@Id
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * Altera Id da atividade
+	 * @param id
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override

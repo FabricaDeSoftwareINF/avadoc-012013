@@ -22,6 +22,71 @@ import br.ufg.inf.avadoc.modelo.atividade.Produto;
  * 
  */
 public class XmlAtividades {
+	/**
+	 * Constante para produção científica para se procurar a pontuação de uma
+	 * atividade
+	 */
+	public static final String PRODUCAO_CIENTIFICA = "ProducaoCientifica";
+	/**
+	 * Constante para produção artística para se procurar a pontuação de uma
+	 * atividade
+	 */
+	public static final String PRODUCAO_ARTISTICA_CULTURAL = "ProducaoArtisticaCultural";
+	/**
+	 * Constante para produção técnica e tecnológica para se procurar a
+	 * pontuação de uma atividade
+	 */
+	public static final String PRODUCAO_TECNICA_TECNOLOGICA = "ProducaoTecnicaTecnologica";
+	/**
+	 * Constante para outro tipo de produção para se procurar a pontuação de uma
+	 * atividade
+	 */
+	public static final String PRODUCAO_OUTRO = "ProducaoOutro";
+	/**
+	 * Constante para atividades de pesquisa para se procurar a pontuação de uma
+	 * atividade
+	 */
+	public static final String ATIVIDADE_PESQUISA = "AtividadePesquisa";
+	/**
+	 * Constante para atividades de extensão para se procurar a pontuação de uma
+	 * atividade
+	 */
+	public static final String ATIVIDADE_EXTENSAO = "AtividadeExtensao";
+	/**
+	 * Constante para atividades de direção e/ou função gratificada para se
+	 * procurar a pontuação de uma atividade
+	 */
+	public static final String DIRECAO_FUNCAO_GRATIFICADA = "DirecaoFuncaoGratificada";
+	/**
+	 * Constante para atividades administrativas para se procurar a pontuação de
+	 * uma atividade
+	 */
+	public static final String ATIVIDADE_ADMINISTRATIVA = "AtividadeAdministrativa";
+	/**
+	 * Constante para outros tipos de atividades administrativas para se
+	 * procurar a pontuação de uma atividade
+	 */
+	public static final String ATIVIDADE_ADMINISTRATIVA_OUTRAS = "AtividadeAdministrativaOutra";
+	/**
+	 * Constante para atividades de representação fora da UFG para se procurar a
+	 * pontuação de uma atividade
+	 */
+	public static final String ATIVIDADE_REPRESENTACAO = "AtividadeRepresentacaoFora";
+	/**
+	 * Constante para atividades acadêmicas de orientação para se procurar a
+	 * pontuação de uma atividade
+	 */
+	public static final String ATIVIDADE_ACADEMICA_ORIENTACAO = "Orientacao";
+	/**
+	 * Constante para atividades acadêmicas de bancas e cursos para se procurar
+	 * a pontuação de uma atividade
+	 */
+	public static final String ATIVIDADE_ACADEMICA_BANCAS_CURSOS = "BancaCurso";
+	/**
+	 * Constante para atividades de aprendizado e aperfeiçoamento para se
+	 * procurar a pontuação de uma atividade
+	 */
+	public static final String ATIVIDADE_APRENDIZADO_APERFEICOAMENTO = "AtividadeAprendizadoAperfeicoamento";
 
 	/**
 	 * Retorna produtos de uma subatividade.
@@ -61,9 +126,11 @@ public class XmlAtividades {
 						p.setPontos(Integer.parseInt(eElement
 								.getElementsByTagName("pontos").item(0)
 								.getTextContent()));
+						p.setPontuacaoMaxima(Integer.parseInt(eElement
+								.getElementsByTagName("maximo").item(0)
+								.getTextContent()));
 						produtos.add(p);
 					}
-
 				}
 			}
 			return produtos;
