@@ -1,11 +1,15 @@
 package br.ufg.inf.avadoc.modelo.atividade;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * AtividadeEnsino
  * 
  * Atividades de ensino
- *
+ * 
  */
+@Entity
 public class AtividadeEnsino implements IAtividade {
 	/**
 	 * Horas aula semanais para graduação presenciais.
@@ -23,6 +27,30 @@ public class AtividadeEnsino implements IAtividade {
 	 * Horas aula semanais para pós-graduação a distância.
 	 */
 	private int posGradHorasAulaSemanaisDistancia;
+	/**
+	 * Id da Atividade
+	 */
+	private Long id;
+	
+	public AtividadeEnsino(){
+	}
+	
+	/**
+	 * Retorna Id da atividade
+	 * @return id
+	 */
+	@Id
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * Altera Id da atividade
+	 * @param id
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	/**
 	 * Retorna pontuação referente à atividade.
@@ -31,10 +59,27 @@ public class AtividadeEnsino implements IAtividade {
 	 */
 	@Override
 	public int getPontos() {
-		int pontos = 10 * (graduacaoHorasAulaSemanaisPresenciais
+		return 10 * (graduacaoHorasAulaSemanaisPresenciais
 				+ graduacaoHorasAulaSemanaisDistancia
 				+ posGradHorasAulaSemanaisPresenciais + posGradHorasAulaSemanaisDistancia);
-		return pontos;
+	}
+
+	/**
+	 * Retorna pontuação referente à graduação.
+	 * 
+	 * @return (total de horas semanais) * 10
+	 */
+	public int getPontosGraduacao() {
+		return 10 * (graduacaoHorasAulaSemanaisPresenciais + graduacaoHorasAulaSemanaisDistancia);
+	}
+
+	/**
+	 * Retorna pontuação referente à pós-graduação.
+	 * 
+	 * @return (total de horas semanais) * 10
+	 */
+	public int getPontosPosGraduacao() {
+		return 10 * (posGradHorasAulaSemanaisPresenciais + posGradHorasAulaSemanaisDistancia);
 	}
 
 	/**
