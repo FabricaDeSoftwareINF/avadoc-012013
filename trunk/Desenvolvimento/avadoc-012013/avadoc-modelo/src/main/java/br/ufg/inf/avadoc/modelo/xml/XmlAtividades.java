@@ -12,6 +12,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import br.ufg.inf.avadoc.enums.EnumTipoProducao;
 import br.ufg.inf.avadoc.modelo.atividade.Produto;
 
 /**

@@ -3,6 +3,8 @@ package br.ufg.inf.avadoc.modelo.atividade;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -15,6 +17,12 @@ import javax.persistence.Id;
 public class ProducaoIntelectual implements IAtividade, Serializable {
 	private static final long serialVersionUID = -8781139957824478900L;
 	
+	/**
+	 * Id da atividade
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	/**
 	 * Produçao Científica
 	 */
@@ -32,23 +40,12 @@ public class ProducaoIntelectual implements IAtividade, Serializable {
 	 */
 	private Producao producaoOutra;
 
-	/**
-	 * Id da atividade
-	 */
-	private Long id;
 	
-	public ProducaoIntelectual(){
-		producaoCientifica = new Producao();
-		producaoArtisticaCultural = new Producao();
-		producaoTecnicaTecnologica = new Producao();
-		producaoOutra = new Producao();
-	}
 	
 	/**
 	 * Retorna Id da atividade
 	 * @return id
 	 */
-	@Id
 	public Long getId() {
 		return id;
 	}
