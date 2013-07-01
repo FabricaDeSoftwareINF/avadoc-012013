@@ -7,7 +7,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.ufg.inf.avadoc.modelo.Docente;
 
@@ -19,25 +26,41 @@ import br.ufg.inf.avadoc.modelo.Docente;
 @Entity
 public class ExtratoAtividades implements Serializable {
 	private static final long serialVersionUID = -7740600208068664832L;
+	
+	/**
+	 * Id do extrato de atividades
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	/**
 	 * Docente avaliado
 	 */
+	@ManyToOne
+	@JoinColumn(name="id_docente")
 	private Docente docente;
 	/**
 	 * Data inicial das atividades
 	 */
+	@Temporal(TemporalType.DATE)
 	private Date dataInicial;
 	/**
 	 * Data final das atividades
 	 */
+	@Temporal(TemporalType.DATE)
 	private Date dataFinal;
 	/**
 	 * Atividades de ensino
 	 */
+	@ManyToOne
+	@JoinColumn(name="id_docente")
 	private AtividadeEnsino atividadeEnsino;
 	/**
 	 * Atividades de produção intelectual
 	 */
+	@OneToOne
+	@JoinColumn(name = "id_producao_intelectual")
 	private ProducaoIntelectual producaoIntelectual;
 	/**
 	 * Atividades de pesquisa e extensão
@@ -51,10 +74,6 @@ public class ExtratoAtividades implements Serializable {
 	 * Outras atividades
 	 */
 	private AtividadeOutra atividadeOutra;
-	/**
-	 * Id do extrato de atividades
-	 */
-	private Long id;
 	
 	public ExtratoAtividades(){
 	}
@@ -63,7 +82,6 @@ public class ExtratoAtividades implements Serializable {
 	 * Retorna Id do extrato
 	 * @return id
 	 */
-	@Id
 	public Long getId() {
 		return id;
 	}

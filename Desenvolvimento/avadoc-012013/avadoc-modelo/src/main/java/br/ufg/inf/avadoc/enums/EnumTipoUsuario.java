@@ -4,8 +4,6 @@ public enum EnumTipoUsuario {
 
 	ADMINISTRADOR("ROLE_ADMIN"),
 
-	DENTISTA("ROLE_DENTISTA"),
-
 	USUARIO("ROLE_USUARIO");
 
 	/** Atributo role. */

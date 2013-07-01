@@ -8,6 +8,9 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -15,10 +18,13 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import br.ufg.inf.avadoc.enums.EnumTipoUsuario;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id_pessoa")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -4634824486948432121L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
 
 	private String nome;
 
@@ -27,7 +33,7 @@ public class Usuario implements Serializable {
 	private String senha;
 
 	@ElementCollection(targetClass = EnumTipoUsuario.class)
-	@JoinTable(name = "tb_roles_usuario", joinColumns = @JoinColumn(name = "id_pessoa"))
+	@JoinTable(name = "tb_roles_usuario", joinColumns = @JoinColumn(name = "id_usuario"))
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tp_role", nullable = false)
 	private List<EnumTipoUsuario> tipoUsuario;
@@ -47,6 +53,14 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 
 		this.tipoUsuario = tipoUsuario;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	/**
