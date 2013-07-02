@@ -3,15 +3,11 @@ package br.ufg.inf.avadoc.modelo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import org.apache.commons.io.IOUtils;
-import org.jopendocument.dom.OOUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -93,15 +89,15 @@ public class ExtratoAtividadesTest {
 	
 	@Test
 	public void criarOds(){
-		try {
+		/*try {
 			File file = OdsGerador.gerarPontuacaoOds(extrato).saveAs(new File("sumarioTest"));
 			OOUtils.open(file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-	}
+		}*/
+		assertEquals("892", OdsGerador.gerarPontuacaoOds(extrato).getSheet(0).getCellAt("C37").getTextValue());	}
 	
 	public void imprimeAtividades(ExtratoAtividades extrato){
 		AtividadeEnsino atividadeEnsino = extrato.getAtividadeEnsino();
