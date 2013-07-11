@@ -11,7 +11,7 @@
 
 	<ui:define name="icones">
 
-		<div style="position: relative;margin-top: -50;margin-right: 10;">
+		<div style="position: relative;margin-top: -50px;margin-right: 10px;">
 
 			<h:panelGrid columns="2" style="margin-left: auto;"
 				styleClass="noPrint">
@@ -37,10 +37,41 @@
 		</div>
 
 	</ui:define>
+	
+	<ui:define name="menu">
+	
+		<h:form id="menus" style="width:100%">
+	
+		 	<p:menu style="width:98%">  
+		 
+	            <p:menuitem value="Inicio" update=":form" actionListener="#{navegacaoController.navegacaoIndex()}" style="margin: 8px 0 !important"/> 
+	             
+	            <p:menuitem value="Avaliação do Docente" update=":form" actionListener="#{navegacaoController.navegacaoAvaliacao()}" style="margin: 8px 0 !important"/>
+	            
+	            <p:menuitem value="Informação do Docente" update=":form" actionListener="#{navegacaoController.navegacaoInformacao()}" style="margin: 8px 0 !important"/>
+	            
+	            <p:menuitem value="Historico do Docente" update=":form" actionListener="#{navegacaoController.navegacaoHistorico()}" style="margin: 8px 0 !important"/>
+	            
+	            <p:menuitem value="Importar/Exportar Dados" update=":form" actionListener="#{navegacaoController.navegacaoImportacao()}" style="margin: 8px 0 !important"/>
+	            
+	            <p:menuitem value="Configurações" update=":form" actionListener="#{navegacaoController.navegacaoConfiguracao()}" style="margin: 8px 0 !important"/>
+	            
+	            <p:menuitem value="Ajuda" update=":form" actionListener="#{navegacaoController.navegacaoAjuda()}" style="margin: 8px 0 !important"/>
+	            
+	 	   </p:menu>
+	    
+	    </h:form>
+	
+	</ui:define>
 
 	<ui:define name="conteudo">
 		
-			Hello  World Pra vcs
+		<h:form id="form">
+			
+			<ui:include	src="#{navegacaoController.paginaSelecionada}" />
+			
+		</h:form>
+			
 	</ui:define>
 
 </ui:composition>
