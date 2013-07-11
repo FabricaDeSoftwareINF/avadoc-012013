@@ -5,16 +5,23 @@
       xmlns:p="http://primefaces.org/ui">
 
     <f:view contentType="text/html; charset=UTF-8" encoding="UTF-8">
+    
         <h:head>
+        
             <f:facet name="first">
             
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
                 
+                <meta name="author" content="Wilker Machado" />
+                
                 <title>Avadoc</title>
                 
             </f:facet>
+            
         </h:head>
+        
         <h:body>
+        
             <p:layout fullPage="true">
             
                 <p:layoutUnit position="north" size="140">
@@ -36,17 +43,35 @@
                     </h:form>
                     
                 </p:layoutUnit>
+                
+                <p:layoutUnit position="west" size="250" >  
+			        
+			         <ui:insert name="menu" />
+			         
+			    </p:layoutUnit> 
 
-                <p:layoutUnit styleClass="ui-widget" position="south" size="30">
+                <p:layoutUnit styleClass="ui-widget" position="south" size="50">
                 
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
+                	
+                	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>  
+              
+					<p:dialog modal="true" appendToBody="true" widgetVar="statusDialog" header="Processando.." draggable="false" closable="false">  
+					    
+					    <p:graphicImage value="/img/ajaxloadingbar.gif" />  
+					    
+					</p:dialog>
                 
                     <ui:insert name="conteudo" />
                     
                 </p:layoutUnit>
+                
             </p:layout>
+            
         </h:body>
+        
     </f:view>
+    
 </html>
