@@ -66,8 +66,9 @@ public class Producao implements Serializable {
 	 */
 	public int getPontos() {
 		int pontos = 0;
-		for (Produto p : produtos)
+		for (Produto p : produtos){
 			pontos += p.getPontos();
+		}
 
 		return pontos;
 	}
