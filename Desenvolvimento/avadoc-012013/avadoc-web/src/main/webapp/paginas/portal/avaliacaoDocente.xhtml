@@ -8,8 +8,16 @@
 	xmlns:sec="http://www.springframework.org/security/facelets/tags">
 
 <h:panelGrid style="width:90%; padding: 10px;">
+	
+	<h:panelGrid style="margin-left: auto; margin-right: auto; margin-top: 5px;">
+				
+		<h:panelGrid columns="1" width="100%">
 
-	<h:outputLabel value="Avaliação do Docente" style="font-size:24px"/>
+			<h:outputLabel value="Avaliação do Docente" style="font-size:24px"/>
+
+		</h:panelGrid>
+
+	</h:panelGrid>
 	
 	<p:spacer height="20" />
 		
@@ -17,8 +25,29 @@
 	
 		<h:outputLabel value="Selecione o Docente a ser avaliado:" />
 		
+		<p:selectOneMenu >  
+            <f:selectItem itemLabel="Selecione" itemValue="null" />  
+            <f:selectItem itemLabel="Ciclano" itemValue="idCiclano" />  
+            <f:selectItem itemLabel="Beutrano" itemValue="idBeutrano" />  
+        </p:selectOneMenu>
+		
 		<h:outputLabel value="Tipo de Avaliação:" />
+		
+		<p:selectOneMenu >  
+            <f:selectItem itemLabel="Selecione" itemValue="null" />  
+            <f:selectItem itemLabel="Estagio Probatorio" itemValue="estagioProbatorio" />  
+        </p:selectOneMenu>
 	
+	</h:panelGrid>
+	
+	<h:panelGrid style="margin-left: auto; margin-right: auto; margin-top: 50px;">
+				
+		<h:panelGrid columns="1" width="100%">
+
+			<p:commandButton value="Avaliar" style="width:120px;"/>
+
+		</h:panelGrid>
+
 	</h:panelGrid>
 
 </h:panelGrid>

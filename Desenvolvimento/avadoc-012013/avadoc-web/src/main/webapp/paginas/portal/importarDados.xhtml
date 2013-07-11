@@ -7,6 +7,54 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:sec="http://www.springframework.org/security/facelets/tags">
 
-<h:outputLabel value="importacao e exeportação" />
+<h:panelGrid style="width:90%; padding: 10px;">
+
+	<h:panelGrid style="margin-left: auto; margin-right: auto; margin-top: 5px;">
+				
+		<h:panelGrid columns="1" width="100%">
+
+			<h:outputLabel value="Importar / Exportar Dados" style="font-size:24px"/>
+
+		</h:panelGrid>
+
+	</h:panelGrid>
+	
+	<p:spacer height="20" />
+		
+	<h:panelGrid columns="2" cellpadding="10">
+		
+		<h:outputLabel value="Tipo de Operação:" />
+		
+		<p:selectOneMenu >  
+            <f:selectItem itemLabel="Selecione" itemValue="null" />  
+            <f:selectItem itemLabel="Exportação" itemValue="exportacao" />
+            <f:selectItem itemLabel="Importação" itemValue="importacao" />    
+        </p:selectOneMenu>
+		
+		<h:outputLabel value="Docente:" />
+		
+		<p:selectOneMenu >  
+            <f:selectItem itemLabel="Selecione" itemValue="null" />  
+            <f:selectItem itemLabel="Ciclano" itemValue="idCiclano" />  
+            <f:selectItem itemLabel="Beutrano" itemValue="idBeutrano" />  
+        </p:selectOneMenu>
+        
+        <h:outputLabel value="Arquivo:" /> 
+        
+        <p:fileUpload mode="simple"/>  
+	
+	</h:panelGrid>
+	
+	<h:panelGrid style="margin-left: auto; margin-right: auto; margin-top: 50px;">
+				
+		<h:panelGrid columns="1" width="100%">
+
+			<p:commandButton value="Exportar" style="width:120px;"/>
+
+		</h:panelGrid>
+
+	</h:panelGrid>
+
+</h:panelGrid>
 
 </html>
