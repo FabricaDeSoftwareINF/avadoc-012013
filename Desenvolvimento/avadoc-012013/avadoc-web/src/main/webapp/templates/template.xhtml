@@ -7,30 +7,38 @@
     <f:view contentType="text/html; charset=UTF-8" encoding="UTF-8">
         <h:head>
             <f:facet name="first">
+            
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+                
                 <title>Avadoc</title>
+                
             </f:facet>
         </h:head>
         <h:body>
             <p:layout fullPage="true">
             
-                <p:layoutUnit position="north" size="120">
+                <p:layoutUnit position="north" size="140">
                 
-                    <h:form>
-                       Topo da Página Podera ficar os menus
-                       
-                       <ui:insert name="icones" />
+                    <h:form style="padding-top:10px; padding-left:20px">
+                    
+                    	<h:panelGroup>
+	                    
+	                    	<p:graphicImage width="50" height="70" value="/img/ufg.jpg"/>
+	                    	
+	                    	<p:spacer width="5"/>
+	                       
+							<h:outputLabel style="font-size:50px" value="Sistema de Avaliação dos Docentes" />
+                    
+                    	</h:panelGroup>
+                    	   
+                    	<ui:insert name="icones" />
 						
                     </h:form>
                     
                 </p:layoutUnit>
 
-                <p:layoutUnit position="south" size="70">
+                <p:layoutUnit styleClass="ui-widget" position="south" size="30">
                 
-                    <div align="center">
-                    	Rodape
-                    </div>
-                    
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
