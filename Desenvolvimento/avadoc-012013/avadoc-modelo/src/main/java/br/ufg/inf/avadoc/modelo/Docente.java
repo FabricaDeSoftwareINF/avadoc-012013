@@ -24,8 +24,8 @@ public class Docente implements Serializable {
 	private String nome;
 	
 	public Docente(){
-		matricula = new String();
-		nome = new String();
+		matricula = "";
+		nome = "";
 	}
 
 	/**

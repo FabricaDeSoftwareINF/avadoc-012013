@@ -22,6 +22,9 @@ import br.ufg.inf.avadoc.modelo.atividade.Produto;
  * 
  */
 public class XmlAtividades {
+	private XmlAtividades() {
+	}
+
 	/**
 	 * Retorna produtos de uma subatividade.
 	 * 
@@ -69,7 +72,7 @@ public class XmlAtividades {
 			}
 			return produtos;
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 		return null;
 	}
@@ -87,8 +90,9 @@ public class XmlAtividades {
 	public static Produto getProduto(String codigo, String nomeSubAtividade) {
 		List<Produto> produtos = getProdutos(nomeSubAtividade);
 		for (Produto p : produtos) {
-			if (p.getCodigo().equals(codigo))
+			if (p.getCodigo().equals(codigo)) {
 				return p;
+			}
 		}
 		return null;
 	}

@@ -34,6 +34,8 @@ import br.ufg.inf.avadoc.modelo.atividade.ProdutoPontosMensais;
  * 
  */
 public class XmlExtratoAtividades {
+	private XmlExtratoAtividades() {
+	}
 
 	/**
 	 * Retorna extrato de atividades (RADOC) já pontuado.
@@ -110,7 +112,7 @@ public class XmlExtratoAtividades {
 			}
 			return extrato;
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 
 		return extrato;
@@ -119,7 +121,8 @@ public class XmlExtratoAtividades {
 	/**
 	 * Retorna atividades de ensino
 	 * 
-	 * @param element parte do xml que contém as atividades de ensino
+	 * @param element
+	 *            parte do xml que contém as atividades de ensino
 	 * @return Atividade de ensino
 	 */
 	private static AtividadeEnsino getAtividadeEnsino(Element element) {
@@ -148,15 +151,16 @@ public class XmlExtratoAtividades {
 
 	/**
 	 * Retorna atividades de produção intelectual
-	 * @param element parte do xml que contém as atividades de produção intelectual
+	 * 
+	 * @param element
+	 *            parte do xml que contém as atividades de produção intelectual
 	 * @return ProducaoIntelectual
 	 */
 	private static ProducaoIntelectual getProducaoIntelectual(Element element) {
 		ProducaoIntelectual producaoIntelectual = new ProducaoIntelectual();
 		Element e = (Element) element.getElementsByTagName("Cientifica")
 				.item(0);
-		producaoIntelectual
-				.setProducaoCientifica(getProducaoCientifica(e));
+		producaoIntelectual.setProducaoCientifica(getProducaoCientifica(e));
 
 		e = (Element) element.getElementsByTagName("ArtisticaCultural").item(0);
 		producaoIntelectual
@@ -175,7 +179,9 @@ public class XmlExtratoAtividades {
 
 	/**
 	 * Retorna atividades de pesquisa e extensão
-	 * @param element parte do xml que contém as atividades de pesquisa e extensão
+	 * 
+	 * @param element
+	 *            parte do xml que contém as atividades de pesquisa e extensão
 	 * @return AtividadePesquisaExtensao
 	 */
 	private static AtividadePesquisaExtensao getAtividadePesquisaExtensao(
@@ -192,7 +198,10 @@ public class XmlExtratoAtividades {
 
 	/**
 	 * Retorna atividades administrativas e de representação
-	 * @param element parte do xml que contém as atividades administrativas e de representação
+	 * 
+	 * @param element
+	 *            parte do xml que contém as atividades administrativas e de
+	 *            representação
 	 * @return AtividadeAdministrativaRepresentacao
 	 */
 	private static AtividadeAdministrativaRepresentacao getAtividadeAdministrativaRepresentacao(
@@ -221,7 +230,9 @@ public class XmlExtratoAtividades {
 
 	/**
 	 * Retorna outras atividades
-	 * @param element parte do xml que contém as outras atividades
+	 * 
+	 * @param element
+	 *            parte do xml que contém as outras atividades
 	 * @return AtividadeOutra
 	 */
 	private static AtividadeOutra getAtividadeOutra(Element e) {
@@ -246,11 +257,13 @@ public class XmlExtratoAtividades {
 	}
 
 	private static Producao getProducaoArtisticaCultural(Element e) {
-		return getProducao(e, EnumTipoProducao.PRODUCAO_ARTISTICA_CULTURAL.getKey());
+		return getProducao(e,
+				EnumTipoProducao.PRODUCAO_ARTISTICA_CULTURAL.getKey());
 	}
 
 	private static Producao getProducaoTecnicaTecnologica(Element e) {
-		return getProducao(e, EnumTipoProducao.PRODUCAO_TECNICA_TECNOLOGICA.getKey());
+		return getProducao(e,
+				EnumTipoProducao.PRODUCAO_TECNICA_TECNOLOGICA.getKey());
 	}
 
 	private static Producao getProducaoOutro(Element e) {
@@ -266,11 +279,13 @@ public class XmlExtratoAtividades {
 	}
 
 	private static Producao getDirecaoFuncaoGratificada(Element element) {
-		return getProducao(element, EnumTipoProducao.DIRECAO_FUNCAO_GRATIFICADA.getKey());
+		return getProducao(element,
+				EnumTipoProducao.DIRECAO_FUNCAO_GRATIFICADA.getKey());
 	}
 
 	private static Producao getAdministrativa(Element element) {
-		return getProducao(element, EnumTipoProducao.ATIVIDADE_ADMINISTRATIVA.getKey());
+		return getProducao(element,
+				EnumTipoProducao.ATIVIDADE_ADMINISTRATIVA.getKey());
 	}
 
 	private static Producao getOutraAdministrativa(Element element) {
@@ -279,7 +294,8 @@ public class XmlExtratoAtividades {
 	}
 
 	private static Producao getRepresentacaoFora(Element element) {
-		return getProducao(element, EnumTipoProducao.ATIVIDADE_REPRESENTACAO.getKey());
+		return getProducao(element,
+				EnumTipoProducao.ATIVIDADE_REPRESENTACAO.getKey());
 	}
 
 	private static Producao getOrientacao(Element element) {
