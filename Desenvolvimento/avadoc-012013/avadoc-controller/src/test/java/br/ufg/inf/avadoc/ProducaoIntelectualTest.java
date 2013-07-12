@@ -25,16 +25,16 @@ public class ProducaoIntelectualTest {
 	@Test
 	public void testGetPontos() {
 		Producao producaoCientifica = new Producao();
-		producaoCientifica.getProdutos().add(XmlAtividades.getProduto("6.7", "ProducaoCientifica"));
+		producaoCientifica.addProduto(XmlAtividades.getProduto("6.7", "ProducaoCientifica"));
 		
 		Producao producaoArtisticaCultural = new Producao();
-		producaoArtisticaCultural.getProdutos().add(XmlAtividades.getProduto("9", "ProducaoArtisticaCultural"));
+		producaoArtisticaCultural.addProduto(XmlAtividades.getProduto("9", "ProducaoArtisticaCultural"));
 
 		Producao producaoTecnicaTecnologica = new Producao();
-		producaoTecnicaTecnologica.getProdutos().add(XmlAtividades.getProduto("14.1", "ProducaoTecnicaTecnologica"));
+		producaoTecnicaTecnologica.addProduto(XmlAtividades.getProduto("14.1", "ProducaoTecnicaTecnologica"));
 		
 		Producao producaoOutra = new Producao();
-		producaoOutra.getProdutos().add(XmlAtividades.getProduto("6", "ProducaoOutro"));
+		producaoOutra.addProduto(XmlAtividades.getProduto("6", "ProducaoOutro"));
 		
 		producaoIntelectual.setProducaoCientifica(producaoCientifica);
 		producaoIntelectual.setProducaoArtisticaCultural(producaoArtisticaCultural);

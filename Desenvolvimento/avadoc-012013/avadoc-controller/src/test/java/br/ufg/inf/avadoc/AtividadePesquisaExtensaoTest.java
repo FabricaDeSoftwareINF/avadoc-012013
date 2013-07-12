@@ -25,10 +25,10 @@ public class AtividadePesquisaExtensaoTest {
 	@Test
 	public void testGetPontos() {
 		Producao pesquisa = new Producao();
-		pesquisa.getProdutos().add(XmlAtividades.getProduto("2", "AtividadePesquisa"));
+		pesquisa.addProduto(XmlAtividades.getProduto("2", "AtividadePesquisa"));
 		
 		Producao extensao = new Producao();
-		extensao.getProdutos().add(XmlAtividades.getProduto("9.1", "AtividadeExtensao"));
+		extensao.addProduto(XmlAtividades.getProduto("9.1", "AtividadeExtensao"));
 		
 		atividadePesquisaExtensao.setPesquisa(pesquisa);
 		atividadePesquisaExtensao.setExtensao(extensao);

@@ -7,15 +7,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.ufg.inf.avadoc.modelo.AbstractEntity;
 import br.ufg.inf.avadoc.modelo.Docente;
 
 /**
@@ -24,16 +22,9 @@ import br.ufg.inf.avadoc.modelo.Docente;
  * Extrato com atividades do docente (Radoc)
  */
 @Entity
-public class ExtratoAtividades implements Serializable {
+public class ExtratoAtividades extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = -7740600208068664832L;
 	
-	/**
-	 * Id do extrato de atividades
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
 	/**
 	 * Docente avaliado
 	 */
@@ -53,8 +44,8 @@ public class ExtratoAtividades implements Serializable {
 	/**
 	 * Atividades de ensino
 	 */
-	@ManyToOne
-	@JoinColumn(name="id_docente")
+	@OneToOne
+	@JoinColumn(name="id_atividade_ensino")
 	private AtividadeEnsino atividadeEnsino;
 	/**
 	 * Atividades de produção intelectual
@@ -65,33 +56,23 @@ public class ExtratoAtividades implements Serializable {
 	/**
 	 * Atividades de pesquisa e extensão
 	 */
+	@OneToOne
+	@JoinColumn(name = "id_atividade_pesquisa_extensao")
 	private AtividadePesquisaExtensao atividadePesquisaExtensao;
 	/**
 	 * Atividades administrativas e de representação
 	 */
+	@OneToOne
+	@JoinColumn(name = "id_atividade_administrativa_representacao")
 	private AtividadeAdministrativaRepresentacao atividadeAdministrativaRepresentacao;
 	/**
 	 * Outras atividades
 	 */
+	@OneToOne
+	@JoinColumn(name = "id_atividade_outra")
 	private AtividadeOutra atividadeOutra;
 	
 	public ExtratoAtividades(){
-	}
-	
-	/**
-	 * Retorna Id do extrato
-	 * @return id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Altera Id do extrato
-	 * @param id
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**

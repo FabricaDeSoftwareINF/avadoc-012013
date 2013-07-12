@@ -25,13 +25,13 @@ public class AtividadeOutraTest {
 	@Test
 	public void testGetPontos() {
 		Producao orientacao = new Producao();
-		orientacao.getProdutos().add(XmlAtividades.getProduto("13", "Orientacao"));
+		orientacao.addProduto(XmlAtividades.getProduto("13", "Orientacao"));
 		
 		Producao bancaCurso = new Producao();
-		bancaCurso.getProdutos().add(XmlAtividades.getProduto("6.1", "BancaCurso"));
+		bancaCurso.addProduto(XmlAtividades.getProduto("6.1", "BancaCurso"));
 		
 		Producao aprendizadoAperfeicoamento = new Producao();
-		aprendizadoAperfeicoamento.getProdutos().add(XmlAtividades.getProduto("5", "AtividadeAprendizadoAperfeicoamento"));
+		aprendizadoAperfeicoamento.addProduto(XmlAtividades.getProduto("5", "AtividadeAprendizadoAperfeicoamento"));
 		
 		atividadeOutra.setOrientacao(orientacao);
 		atividadeOutra.setBancaCurso(bancaCurso);

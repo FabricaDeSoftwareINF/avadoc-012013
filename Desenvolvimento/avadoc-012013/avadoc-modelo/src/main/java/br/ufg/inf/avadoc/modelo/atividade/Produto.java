@@ -3,11 +3,10 @@ package br.ufg.inf.avadoc.modelo.atividade;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
  * Produto
@@ -16,15 +15,8 @@ import javax.persistence.ManyToOne;
  * 
  */
 @Entity
-public class Produto implements Serializable {
+public class Produto extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 5401913319005557356L;
-
-	/**
-	 * Id do produto.
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
 	/**
 	 * Código do artefato/atividade.
 	 */
@@ -38,29 +30,14 @@ public class Produto implements Serializable {
 	 */
 	private int pontuacaoMaxima;
 
+	/**
+	 * Produção a qual o produto faz parte
+	 */
 	@ManyToOne
 	@JoinColumn(name = "id_producao")
 	private Producao producao;
-	
+
 	public Produto() {
-	}
-
-	/**
-	 * Retorna Id do produto
-	 * 
-	 * @return id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Altera Id do produto
-	 * 
-	 * @param id
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -115,5 +92,21 @@ public class Produto implements Serializable {
 	 */
 	public void setPontuacaoMaxima(int pontuacaoMaxima) {
 		this.pontuacaoMaxima = pontuacaoMaxima;
+	}
+	
+	/**
+	 * Retorna Produção relacionada ao produto
+	 * @return
+	 */
+	public Producao getProducao() {
+		return producao;
+	}
+
+	/**
+	 * Altera a produção que o produto faz parte
+	 * @param producao
+	 */
+	public void setProducao(Producao producao) {
+		this.producao = producao;
 	}
 }

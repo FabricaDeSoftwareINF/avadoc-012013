@@ -375,7 +375,7 @@ public class XmlExtratoAtividades {
 				produtoHora.setHoras(horas);
 				produto.setPontos(produtoHora.getPontos());
 			}
-			producao.getProdutos().add(produto);
+			producao.addProduto(produto);
 		}
 
 		return producao;
