@@ -1,7 +1,8 @@
 package br.ufg.inf.avadoc.modelo.atividade;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
+
+import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
  * AtividadeEnsino
@@ -10,7 +11,7 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-public class AtividadeEnsino implements IAtividade {
+public class AtividadeEnsino extends AbstractEntity implements IAtividade {
 	/**
 	 * Horas aula semanais para graduação presenciais.
 	 */
@@ -27,29 +28,8 @@ public class AtividadeEnsino implements IAtividade {
 	 * Horas aula semanais para pós-graduação a distância.
 	 */
 	private int posGradHorasAulaSemanaisDistancia;
-	/**
-	 * Id da Atividade
-	 */
-	private Long id;
 	
 	public AtividadeEnsino(){
-	}
-	
-	/**
-	 * Retorna Id da atividade
-	 * @return id
-	 */
-	@Id
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Altera Id da atividade
-	 * @param id
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**

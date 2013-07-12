@@ -25,16 +25,16 @@ public class AtividadeAdministrativaRepresentacaoTest {
 	@Test
 	public void testGetPontos() {
 		Producao direcaoFuncaoGratificada = new Producao();
-		direcaoFuncaoGratificada.getProdutos().add(XmlAtividades.getProduto("3", "DirecaoFuncaoGratificada"));
+		direcaoFuncaoGratificada.addProduto(XmlAtividades.getProduto("3", "DirecaoFuncaoGratificada"));
 		
 		Producao administrativa = new Producao();
-		administrativa.getProdutos().add(XmlAtividades.getProduto("3", "AtividadeAdministrativa"));
+		administrativa.addProduto(XmlAtividades.getProduto("3", "AtividadeAdministrativa"));
 		
 		Producao outraAdministrativa = new Producao();
-		outraAdministrativa.getProdutos().add(XmlAtividades.getProduto("3", "AtividadeAdministrativaOutra"));
+		outraAdministrativa.addProduto(XmlAtividades.getProduto("3", "AtividadeAdministrativaOutra"));
 		
 		Producao representacaoFora = new Producao();
-		representacaoFora.getProdutos().add(XmlAtividades.getProduto("2", "AtividadeRepresentacaoFora"));
+		representacaoFora.addProduto(XmlAtividades.getProduto("2", "AtividadeRepresentacaoFora"));
 		
 		atividadeAdministrativaRepresentacao.setDirecaoFuncaoGratificada(direcaoFuncaoGratificada);
 		atividadeAdministrativaRepresentacao.setAdministrativa(outraAdministrativa);

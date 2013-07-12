@@ -2,7 +2,8 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
-import javax.persistence.Id;
+import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
+import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
  * AtividadeOutra
@@ -10,8 +11,9 @@ import javax.persistence.Id;
  * Outras atividades
  * 
  */
-public class AtividadeOutra implements IAtividade, Serializable {
+public class AtividadeOutra extends AbstractEntity implements IAtividade, Serializable {
 	private static final long serialVersionUID = 5832616413995668556L;
+
 	/**
 	 * Atividades Acadêmicas - Orientação
 	 */
@@ -24,10 +26,6 @@ public class AtividadeOutra implements IAtividade, Serializable {
 	 * Atividades de Aprendizado e Aperfeiçoamento
 	 */
 	private Producao aprendizadoAperfeicoamento;
-	/**
-	 * Id da atividade
-	 */
-	private Long id;
 	
 	public AtividadeOutra(){
 		orientacao = new Producao();
@@ -35,23 +33,6 @@ public class AtividadeOutra implements IAtividade, Serializable {
 		aprendizadoAperfeicoamento = new Producao();
 	}
 	
-	/**
-	 * Retorna Id da atividade
-	 * @return id
-	 */
-	@Id
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Altera Id da atividade
-	 * @param id
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	@Override
 	public int getPontos() {
 		return orientacao.getPontos() + bancaCurso.getPontos()
@@ -73,6 +54,7 @@ public class AtividadeOutra implements IAtividade, Serializable {
 	 * @param orientacao
 	 */
 	public void setOrientacao(Producao orientacao) {
+		orientacao.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
 		this.orientacao = orientacao;
 	}
 
@@ -91,6 +73,7 @@ public class AtividadeOutra implements IAtividade, Serializable {
 	 * @param bancaCurso
 	 */
 	public void setBancaCurso(Producao bancaCurso) {
+		bancaCurso.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
 		this.bancaCurso = bancaCurso;
 	}
 
@@ -111,6 +94,7 @@ public class AtividadeOutra implements IAtividade, Serializable {
 	 */
 	public void setAprendizadoAperfeicoamento(
 			Producao aprendizadoAperfeicoamento) {
+		aprendizadoAperfeicoamento.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
 		this.aprendizadoAperfeicoamento = aprendizadoAperfeicoamento;
 	}
 

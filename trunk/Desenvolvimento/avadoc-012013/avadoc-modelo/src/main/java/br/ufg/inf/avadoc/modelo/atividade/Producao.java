@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.enums.EnumTipoProducao;
 
 /**
@@ -27,13 +28,28 @@ public class Producao implements Serializable {
 
 	private static final long serialVersionUID = 3041614986590545497L;
 
+	/**
+	 * Id da produção
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "producaos")
+	/**
+	 * Produtos da produção
+	 */
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "producao")
 	private List<Produto> produtos;
 	
+	/**
+	 * Tipo de atividade
+	 */
+	@Enumerated(EnumType.STRING)
+	private EnumTipoAtividade tipoAtividade;
+
+	/**
+	 * Tipo de produção
+	 */
 	@Enumerated(EnumType.STRING)
 	private EnumTipoProducao tipoProducao;
 
@@ -88,14 +104,39 @@ public class Producao implements Serializable {
 	 * 
 	 * @param produtos
 	 */
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public void addProduto(Produto produto) {
+		produto.setProducao(this);
+		this.produtos.add(produto);
 	}
 
+	/**
+	 * Retorna o grupo de atividade que pertence
+	 * @return tipoAtividade
+	 */
+	public EnumTipoAtividade getTipoAtividade() {
+		return tipoAtividade;
+	}
+
+	/**
+	 * Altera o grupo de atividades que pertence
+	 * @param tipoAtividade
+	 */
+	public void setTipoAtividade(EnumTipoAtividade tipoAtividade) {
+		this.tipoAtividade = tipoAtividade;
+	}
+	
+	/**
+	 * Retorna o tipo de produção
+	 * @return tipoProducao
+	 */
 	public EnumTipoProducao getTipoProducao() {
 		return tipoProducao;
 	}
 
+	/**
+	 * Altera o tipo de produção
+	 * @param tipoProducao
+	 */
 	public void setTipoProducao(EnumTipoProducao tipoProducao) {
 		this.tipoProducao = tipoProducao;
 	}

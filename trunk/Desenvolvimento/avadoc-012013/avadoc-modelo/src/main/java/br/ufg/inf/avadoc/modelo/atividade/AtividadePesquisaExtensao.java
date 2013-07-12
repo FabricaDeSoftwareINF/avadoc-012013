@@ -3,7 +3,9 @@ package br.ufg.inf.avadoc.modelo.atividade;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
+
+import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
+import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
  * AtividadePesquisaExtensao
@@ -12,9 +14,9 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-public class AtividadePesquisaExtensao implements IAtividade, Serializable {
+public class AtividadePesquisaExtensao extends AbstractEntity implements IAtividade, Serializable {
 	private static final long serialVersionUID = -7628360259213604614L;
-	
+
 	/**
 	 * Atividades de pesquisa
 	 */
@@ -23,31 +25,11 @@ public class AtividadePesquisaExtensao implements IAtividade, Serializable {
 	 * Atividades de Extensão
 	 */
 	private Producao extensao;
-	/**
-	 * Id da atividade
-	 */
-	private Long id;
+	
 	
 	public AtividadePesquisaExtensao(){
 		pesquisa = new Producao();
 		extensao = new Producao();
-	}
-	
-	/**
-	 * Retorna Id da atividade
-	 * @return id
-	 */
-	@Id
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Altera Id da atividade
-	 * @param id
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	@Override
@@ -70,6 +52,7 @@ public class AtividadePesquisaExtensao implements IAtividade, Serializable {
 	 * @param pesquisa
 	 */
 	public void setPesquisa(Producao pesquisa) {
+		pesquisa.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_PESQUISA_EXTENSAO);
 		this.pesquisa = pesquisa;
 	}
 
@@ -88,6 +71,7 @@ public class AtividadePesquisaExtensao implements IAtividade, Serializable {
 	 * @param extensao
 	 */
 	public void setExtensao(Producao extensao) {
+		extensao.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_PESQUISA_EXTENSAO);
 		this.extensao = extensao;
 	}
 }
