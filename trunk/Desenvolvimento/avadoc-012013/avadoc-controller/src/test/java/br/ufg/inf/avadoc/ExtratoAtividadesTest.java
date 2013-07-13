@@ -97,7 +97,8 @@ public class ExtratoAtividadesTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}*/
-		assertEquals("892", OdsGerador.gerarPontuacaoOds(extrato).getSheet(0).getCellAt("C37").getTextValue());	}
+		int result = Integer.parseInt(OdsGerador.gerarPontuacaoOds(extrato).getSheet(0).getCellAt("C37").getValue().toString());
+		assertEquals(892, result);	}
 	
 	public void imprimeAtividades(ExtratoAtividades extrato){
 		AtividadeEnsino atividadeEnsino = extrato.getAtividadeEnsino();
