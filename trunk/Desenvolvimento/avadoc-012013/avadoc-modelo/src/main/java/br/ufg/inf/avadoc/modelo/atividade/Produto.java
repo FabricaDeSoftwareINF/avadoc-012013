@@ -2,7 +2,11 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -17,6 +21,11 @@ import br.ufg.inf.avadoc.modelo.AbstractEntity;
 @Entity
 public class Produto extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 5401913319005557356L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_produto")
+	private Long id;
 	/**
 	 * Código do artefato/atividade.
 	 */
@@ -93,9 +102,10 @@ public class Produto extends AbstractEntity implements Serializable {
 	public void setPontuacaoMaxima(int pontuacaoMaxima) {
 		this.pontuacaoMaxima = pontuacaoMaxima;
 	}
-	
+
 	/**
 	 * Retorna Produção relacionada ao produto
+	 * 
 	 * @return
 	 */
 	public Producao getProducao() {
@@ -104,9 +114,19 @@ public class Produto extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera a produção que o produto faz parte
+	 * 
 	 * @param producao
 	 */
 	public void setProducao(Producao producao) {
 		this.producao = producao;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }

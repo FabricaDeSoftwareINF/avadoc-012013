@@ -2,6 +2,11 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
@@ -11,9 +16,14 @@ import br.ufg.inf.avadoc.modelo.AbstractEntity;
  * Outras atividades
  * 
  */
-public class AtividadeOutra extends AbstractEntity implements IAtividade, Serializable {
+public class AtividadeOutra extends AbstractEntity implements IAtividade,
+		Serializable {
 	private static final long serialVersionUID = 5832616413995668556L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_atividade_outra")
+	private Long id;
 	/**
 	 * Atividades Acadêmicas - Orientação
 	 */
@@ -26,13 +36,13 @@ public class AtividadeOutra extends AbstractEntity implements IAtividade, Serial
 	 * Atividades de Aprendizado e Aperfeiçoamento
 	 */
 	private Producao aprendizadoAperfeicoamento;
-	
-	public AtividadeOutra(){
+
+	public AtividadeOutra() {
 		orientacao = new Producao();
 		bancaCurso = new Producao();
 		aprendizadoAperfeicoamento = new Producao();
 	}
-	
+
 	@Override
 	public int getPontos() {
 		return orientacao.getPontos() + bancaCurso.getPontos()
@@ -94,8 +104,17 @@ public class AtividadeOutra extends AbstractEntity implements IAtividade, Serial
 	 */
 	public void setAprendizadoAperfeicoamento(
 			Producao aprendizadoAperfeicoamento) {
-		aprendizadoAperfeicoamento.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
+		aprendizadoAperfeicoamento
+				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
 		this.aprendizadoAperfeicoamento = aprendizadoAperfeicoamento;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
