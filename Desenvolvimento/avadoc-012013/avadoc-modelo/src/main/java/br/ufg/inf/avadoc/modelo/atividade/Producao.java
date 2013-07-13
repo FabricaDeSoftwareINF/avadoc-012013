@@ -9,13 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.enums.EnumTipoProducao;
+import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
  * Producao
@@ -24,16 +22,9 @@ import br.ufg.inf.avadoc.enums.EnumTipoProducao;
  * 
  */
 @Entity
-public class Producao implements Serializable {
+public class Producao extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 3041614986590545497L;
-
-	/**
-	 * Id da produção
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
 
 	/**
 	 * Produtos da produção
@@ -55,24 +46,6 @@ public class Producao implements Serializable {
 
 	public Producao() {
 		produtos = new ArrayList<Produto>();
-	}
-
-	/**
-	 * Retorna Id
-	 * 
-	 * @return id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Altera Id
-	 * 
-	 * @param id
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
