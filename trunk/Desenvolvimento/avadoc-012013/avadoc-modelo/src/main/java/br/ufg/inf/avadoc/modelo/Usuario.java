@@ -10,13 +10,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 import br.ufg.inf.avadoc.enums.EnumTipoUsuario;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id_pessoa")
-public class Usuario implements Serializable {
+public class Usuario extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = -4634824486948432121L;
 

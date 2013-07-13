@@ -144,6 +144,70 @@ public class UtilObjeto {
 		return (isReferencia(classe) && colecao.isAssignableFrom(classe));
 	}
 
-	
+	/**
+	 * Retorna true se o objeto for do tipo informado.
+	 * 
+	 * @param objeto
+	 *            Objeto validado.
+	 * @param tipo
+	 *            Tipo desejado
+	 * 
+	 * @return true se o objeto for do tipo informado.
+	 */
+	public static boolean isObjetoDoTipo(final Object objeto, Class<?> tipo) {
+
+		boolean res = false;
+
+		if (isReferencia(objeto, tipo)) {
+
+			Class<?> classe = getClasse(objeto);
+
+			res = tipo.isAssignableFrom(classe);
+		}
+
+		return res;
+	}
+
+	/**
+	 * Retorna a classe do objeto.
+	 * 
+	 * @param <T>
+	 *            Tipo do objeto da classe.
+	 * @param objeto
+	 *            Objeto
+	 * 
+	 * @return Classe
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> Class<T> getClasse(final T objeto) {
+
+		Class<T> classe = null;
+
+		if (isReferencia(objeto)) {
+
+			if (isClasse(objeto)) {
+
+				classe = (Class<T>) objeto;
+			} else {
+
+				classe = (Class<T>) objeto.getClass();
+			}
+		}
+
+		return classe;
+	}
+
+	/**
+	 * Retorna true se o objeto for uma classe.
+	 * 
+	 * @param objeto
+	 *            Objeto validado.
+	 * 
+	 * @return true se o objeto for uma classe.
+	 */
+	public static boolean isClasse(final Object objeto) {
+
+		return (isReferencia(objeto) && (objeto instanceof Class));
+	}
 
 }
