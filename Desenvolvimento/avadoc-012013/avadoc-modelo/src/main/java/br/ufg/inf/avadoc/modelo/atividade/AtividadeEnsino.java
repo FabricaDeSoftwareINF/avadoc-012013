@@ -1,6 +1,10 @@
 package br.ufg.inf.avadoc.modelo.atividade;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
@@ -12,6 +16,10 @@ import br.ufg.inf.avadoc.modelo.AbstractEntity;
  */
 @Entity
 public class AtividadeEnsino extends AbstractEntity implements IAtividade {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_atividade_ensino")
+	private Long id;
 	/**
 	 * Horas aula semanais para graduação presenciais.
 	 */
@@ -28,8 +36,8 @@ public class AtividadeEnsino extends AbstractEntity implements IAtividade {
 	 * Horas aula semanais para pós-graduação a distância.
 	 */
 	private int posGradHorasAulaSemanaisDistancia;
-	
-	public AtividadeEnsino(){
+
+	public AtividadeEnsino() {
 	}
 
 	/**
@@ -148,6 +156,14 @@ public class AtividadeEnsino extends AbstractEntity implements IAtividade {
 	public void setPosGradHorasAulaSemanaisDistancia(
 			int posGradHorasAulaSemanaisDistancia) {
 		this.posGradHorasAulaSemanaisDistancia = posGradHorasAulaSemanaisDistancia;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

@@ -2,7 +2,11 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
@@ -14,9 +18,14 @@ import br.ufg.inf.avadoc.modelo.AbstractEntity;
  * 
  */
 @Entity
-public class ProducaoIntelectual extends AbstractEntity implements IAtividade, Serializable {
+public class ProducaoIntelectual extends AbstractEntity implements IAtividade,
+		Serializable {
 	private static final long serialVersionUID = -8781139957824478900L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_producao_intelectual")
+	private Long id;
 	/**
 	 * Produçao Científica
 	 */
@@ -57,7 +66,8 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade, S
 	 * @param producaoCientifica
 	 */
 	public void setProducaoCientifica(Producao producaoCientifica) {
-		producaoCientifica.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
+		producaoCientifica
+				.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
 		this.producaoCientifica = producaoCientifica;
 	}
 
@@ -76,7 +86,8 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade, S
 	 * @param producaoArtisticaCultural
 	 */
 	public void setProducaoArtisticaCultural(Producao producaoArtisticaCultural) {
-		producaoArtisticaCultural.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
+		producaoArtisticaCultural
+				.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
 		this.producaoArtisticaCultural = producaoArtisticaCultural;
 	}
 
@@ -96,7 +107,8 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade, S
 	 */
 	public void setProducaoTecnicaTecnologica(
 			Producao producaoTecnicaTecnologica) {
-		producaoTecnicaTecnologica.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
+		producaoTecnicaTecnologica
+				.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
 		this.producaoTecnicaTecnologica = producaoTecnicaTecnologica;
 	}
 
@@ -117,6 +129,14 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade, S
 	public void setProducaoOutra(Producao producaoOutra) {
 		producaoOutra.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
 		this.producaoOutra = producaoOutra;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

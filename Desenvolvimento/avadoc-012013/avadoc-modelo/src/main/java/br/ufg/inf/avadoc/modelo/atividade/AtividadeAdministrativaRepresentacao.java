@@ -2,7 +2,11 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
@@ -15,9 +19,14 @@ import br.ufg.inf.avadoc.modelo.AbstractEntity;
  * 
  */
 @Entity
-public class AtividadeAdministrativaRepresentacao extends AbstractEntity implements IAtividade, Serializable {
+public class AtividadeAdministrativaRepresentacao extends AbstractEntity
+		implements IAtividade, Serializable {
 	private static final long serialVersionUID = -7989496005881283847L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_atividade_administrativa_representacao")
+	private Long id;
 	/**
 	 * Atividades de direção ou de função gratificada
 	 */
@@ -34,15 +43,14 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity impleme
 	 * Atividades de representação fora da UFG
 	 */
 	private Producao representacaoFora;
-	
-	
-	public AtividadeAdministrativaRepresentacao(){
+
+	public AtividadeAdministrativaRepresentacao() {
 		direcaoFuncaoGratificada = new Producao();
 		administrativa = new Producao();
 		outraAdministrativa = new Producao();
 		representacaoFora = new Producao();
 	}
-	
+
 	@Override
 	public int getPontos() {
 		return direcaoFuncaoGratificada.getPontos()
@@ -66,7 +74,8 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity impleme
 	 * @param direcaoFuncaoGratificada
 	 */
 	public void setDirecaoFuncaoGratificada(Producao direcaoFuncaoGratificada) {
-		direcaoFuncaoGratificada.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		direcaoFuncaoGratificada
+				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
 		this.direcaoFuncaoGratificada = direcaoFuncaoGratificada;
 	}
 
@@ -85,7 +94,8 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity impleme
 	 * @param administrativa
 	 */
 	public void setAdministrativa(Producao administrativa) {
-		administrativa.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		administrativa
+				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
 		this.administrativa = administrativa;
 	}
 
@@ -106,7 +116,8 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity impleme
 	 * @param outraAdministrativa
 	 */
 	public void setOutraAdministrativa(Producao outraAdministrativa) {
-		outraAdministrativa.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		outraAdministrativa
+				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
 		this.outraAdministrativa = outraAdministrativa;
 	}
 
@@ -125,8 +136,17 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity impleme
 	 * @param representacaoFora
 	 */
 	public void setRepresentacaoFora(Producao representacaoFora) {
-		representacaoFora.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		representacaoFora
+				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
 		this.representacaoFora = representacaoFora;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

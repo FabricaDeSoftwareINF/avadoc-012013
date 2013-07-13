@@ -6,7 +6,11 @@ package br.ufg.inf.avadoc.modelo.atividade;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -24,12 +28,17 @@ import br.ufg.inf.avadoc.modelo.Docente;
 @Entity
 public class ExtratoAtividades extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = -7740600208068664832L;
-	
+
 	/**
 	 * Docente avaliado
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_extrato_atividades")
+	private Long id;
+
 	@ManyToOne
-	@JoinColumn(name="id_docente")
+	@JoinColumn(name = "id_docente")
 	private Docente docente;
 	/**
 	 * Data inicial das atividades
@@ -45,7 +54,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 	 * Atividades de ensino
 	 */
 	@OneToOne
-	@JoinColumn(name="id_atividade_ensino")
+	@JoinColumn(name = "id_atividade_ensino")
 	private AtividadeEnsino atividadeEnsino;
 	/**
 	 * Atividades de produção intelectual
@@ -71,12 +80,13 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "id_atividade_outra")
 	private AtividadeOutra atividadeOutra;
-	
-	public ExtratoAtividades(){
+
+	public ExtratoAtividades() {
 	}
 
 	/**
 	 * Retorna Docente avaliado
+	 * 
 	 * @return docente
 	 */
 	public Docente getDocente() {
@@ -85,6 +95,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera docente avaliado
+	 * 
 	 * @param docente
 	 */
 	public void setDocente(Docente docente) {
@@ -93,6 +104,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Data inicial das atividades
+	 * 
 	 * @return dataInicial
 	 */
 	public Date getDataInicial() {
@@ -101,6 +113,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera data inicial das atividades
+	 * 
 	 * @param dataInicial
 	 */
 	public void setDataInicial(Date dataInicial) {
@@ -109,6 +122,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Data final das atividades
+	 * 
 	 * @return dataFinal
 	 */
 	public Date getDataFinal() {
@@ -117,6 +131,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera data final das atividades
+	 * 
 	 * @param dataFinal
 	 */
 	public void setDataFinal(Date dataFinal) {
@@ -125,6 +140,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Atividades de ensino
+	 * 
 	 * @return atividadeEnsino
 	 */
 	public AtividadeEnsino getAtividadeEnsino() {
@@ -133,6 +149,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera atividades de ensino
+	 * 
 	 * @param atividadeEnsino
 	 */
 	public void setAtividadeEnsino(AtividadeEnsino atividadeEnsino) {
@@ -141,6 +158,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Atividades de produção intelectual
+	 * 
 	 * @return producaoIntelectual
 	 */
 	public ProducaoIntelectual getProducaoIntelectual() {
@@ -149,6 +167,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera atividades de produção intelectual
+	 * 
 	 * @param producaoIntelectual
 	 */
 	public void setProducaoIntelectual(ProducaoIntelectual producaoIntelectual) {
@@ -157,6 +176,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Atividades de pesquisa e extensão
+	 * 
 	 * @return atividadePesquisaExtensao
 	 */
 	public AtividadePesquisaExtensao getAtividadePesquisaExtensao() {
@@ -165,6 +185,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera atividades de pesquisa e extensão
+	 * 
 	 * @param atividadePesquisaExtensao
 	 */
 	public void setAtividadePesquisaExtensao(
@@ -174,6 +195,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Atividades administrativas e de representação
+	 * 
 	 * @return atividadeAdministrativaRepresentacao
 	 */
 	public AtividadeAdministrativaRepresentacao getAtividadeAdministrativaRepresentacao() {
@@ -182,6 +204,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera atividades administrativas e de representação
+	 * 
 	 * @param atividadeAdministrativaRepresentacao
 	 */
 	public void setAtividadeAdministrativaRepresentacao(
@@ -191,6 +214,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Outras atividades
+	 * 
 	 * @return atividadeOutra
 	 */
 	public AtividadeOutra getAtividadeOutra() {
@@ -199,6 +223,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Altera outras atividades
+	 * 
 	 * @param atividadeOutra
 	 */
 	public void setAtividadeOutra(AtividadeOutra atividadeOutra) {
@@ -207,6 +232,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 
 	/**
 	 * Retorna quantidade total de pontos
+	 * 
 	 * @return pontos
 	 */
 	public int getPontos() {
@@ -215,4 +241,13 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 				+ atividadeAdministrativaRepresentacao.getPontos()
 				+ atividadeOutra.getPontos();
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }
