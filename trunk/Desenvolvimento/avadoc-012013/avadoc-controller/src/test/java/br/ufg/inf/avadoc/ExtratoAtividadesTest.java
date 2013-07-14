@@ -45,7 +45,7 @@ public class ExtratoAtividadesTest {
 	}
 
 	@Test
-	public void testXmlRadoc() {
+	public void testPontuacao() {
 		AtividadeEnsino atividadeEnsino = extrato.getAtividadeEnsino();
 		ProducaoIntelectual producaoIntelectual = extrato
 				.getProducaoIntelectual();

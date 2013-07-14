@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
+import br.ufg.inf.avadoc.enums.EnumTipoProducao;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
@@ -67,6 +68,7 @@ public class AtividadePesquisaExtensao extends AbstractEntity implements
 	 */
 	public void setPesquisa(Producao pesquisa) {
 		pesquisa.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_PESQUISA_EXTENSAO);
+		pesquisa.setTipoProducao(EnumTipoProducao.ATIVIDADE_PESQUISA);
 		this.pesquisa = pesquisa;
 	}
 
@@ -86,13 +88,21 @@ public class AtividadePesquisaExtensao extends AbstractEntity implements
 	 */
 	public void setExtensao(Producao extensao) {
 		extensao.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_PESQUISA_EXTENSAO);
+		extensao.setTipoProducao(EnumTipoProducao.ATIVIDADE_EXTENSAO);
 		this.extensao = extensao;
 	}
 
+	/**
+	 * Id
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Altera id
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}

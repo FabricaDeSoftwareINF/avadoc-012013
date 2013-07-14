@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
+import br.ufg.inf.avadoc.enums.EnumTipoProducao;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
@@ -73,6 +74,7 @@ public class AtividadeOutra extends AbstractEntity implements IAtividade,
 	 */
 	public void setOrientacao(Producao orientacao) {
 		orientacao.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
+		orientacao.setTipoProducao(EnumTipoProducao.ATIVIDADE_ACADEMICA_ORIENTACAO);
 		this.orientacao = orientacao;
 	}
 
@@ -92,6 +94,7 @@ public class AtividadeOutra extends AbstractEntity implements IAtividade,
 	 */
 	public void setBancaCurso(Producao bancaCurso) {
 		bancaCurso.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
+		bancaCurso.setTipoProducao(EnumTipoProducao.ATIVIDADE_ACADEMICA_BANCAS_CURSOS);
 		this.bancaCurso = bancaCurso;
 	}
 
@@ -114,13 +117,22 @@ public class AtividadeOutra extends AbstractEntity implements IAtividade,
 			Producao aprendizadoAperfeicoamento) {
 		aprendizadoAperfeicoamento
 				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_OUTRA);
+		aprendizadoAperfeicoamento
+				.setTipoProducao(EnumTipoProducao.ATIVIDADE_APRENDIZADO_APERFEICOAMENTO);
 		this.aprendizadoAperfeicoamento = aprendizadoAperfeicoamento;
 	}
 
+	/**
+	 * Id
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Altera id
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}

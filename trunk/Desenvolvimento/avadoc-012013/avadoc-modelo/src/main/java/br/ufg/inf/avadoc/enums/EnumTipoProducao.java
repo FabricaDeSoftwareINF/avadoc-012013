@@ -1,5 +1,9 @@
 package br.ufg.inf.avadoc.enums;
 
+/**
+ * Tipo de produção/artefato de uma atividade
+ *
+ */
 public enum EnumTipoProducao {
 	/**
 	 * Constante para produção científica para se procurar a pontuação de uma
@@ -67,16 +71,34 @@ public enum EnumTipoProducao {
 	 */
 	ATIVIDADE_APRENDIZADO_APERFEICOAMENTO("AtividadeAprendizadoAperfeicoamento");
 
+	/**
+	 * Tipo de producao
+	 */
 	private String key;
 	
+	/**
+	 * Responsável pela criação de novas instâncias desta classe.
+	 * 
+	 * @param key
+	 * 
+	 */
 	private EnumTipoProducao(String key) {
 		this.key = key;
 	}
 
+	/**
+	 * Retorna o valor do atributo <code>key</code>
+	 * 
+	 * @return <code>String</code>
+	 */
 	public String getKey() {
 		return key;
 	}
-
+	/**
+	 * Define o valor do atributo <code>key</code>.
+	 * 
+	 * @param key
+	 */
 	public void setKey(String key) {
 		this.key = key;
 	}
