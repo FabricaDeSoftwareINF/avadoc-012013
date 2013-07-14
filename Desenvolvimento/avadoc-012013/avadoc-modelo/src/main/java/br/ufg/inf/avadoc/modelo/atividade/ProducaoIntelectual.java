@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
+import br.ufg.inf.avadoc.enums.EnumTipoProducao;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
@@ -49,6 +50,13 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade,
 	 */
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao producaoOutra;
+	
+	public ProducaoIntelectual(){
+		producaoCientifica = new Producao();
+		producaoArtisticaCultural = new Producao();
+		producaoTecnicaTecnologica = new Producao();
+		producaoOutra = new Producao();
+	}
 
 	@Override
 	public int getPontos() {
@@ -75,6 +83,8 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade,
 	public void setProducaoCientifica(Producao producaoCientifica) {
 		producaoCientifica
 				.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
+		producaoCientifica
+				.setTipoProducao(EnumTipoProducao.PRODUCAO_CIENTIFICA);
 		this.producaoCientifica = producaoCientifica;
 	}
 
@@ -95,6 +105,8 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade,
 	public void setProducaoArtisticaCultural(Producao producaoArtisticaCultural) {
 		producaoArtisticaCultural
 				.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
+		producaoArtisticaCultural
+				.setTipoProducao(EnumTipoProducao.PRODUCAO_ARTISTICA_CULTURAL);
 		this.producaoArtisticaCultural = producaoArtisticaCultural;
 	}
 
@@ -116,6 +128,8 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade,
 			Producao producaoTecnicaTecnologica) {
 		producaoTecnicaTecnologica
 				.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
+		producaoTecnicaTecnologica
+				.setTipoProducao(EnumTipoProducao.PRODUCAO_TECNICA_TECNOLOGICA);
 		this.producaoTecnicaTecnologica = producaoTecnicaTecnologica;
 	}
 
@@ -135,13 +149,21 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade,
 	 */
 	public void setProducaoOutra(Producao producaoOutra) {
 		producaoOutra.setTipoAtividade(EnumTipoAtividade.PRODUCAO_INTELECTUAL);
+		producaoOutra.setTipoProducao(EnumTipoProducao.PRODUCAO_OUTRO);
 		this.producaoOutra = producaoOutra;
 	}
 
+	/**
+	 * Id
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Altera id
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}

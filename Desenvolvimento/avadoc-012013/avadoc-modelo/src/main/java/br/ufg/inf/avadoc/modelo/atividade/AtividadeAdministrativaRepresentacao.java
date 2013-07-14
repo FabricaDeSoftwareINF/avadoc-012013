@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
+import br.ufg.inf.avadoc.enums.EnumTipoProducao;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
 
 /**
@@ -83,6 +84,8 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity
 	public void setDirecaoFuncaoGratificada(Producao direcaoFuncaoGratificada) {
 		direcaoFuncaoGratificada
 				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		direcaoFuncaoGratificada
+				.setTipoProducao(EnumTipoProducao.DIRECAO_FUNCAO_GRATIFICADA);
 		this.direcaoFuncaoGratificada = direcaoFuncaoGratificada;
 	}
 
@@ -103,6 +106,8 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity
 	public void setAdministrativa(Producao administrativa) {
 		administrativa
 				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		administrativa
+				.setTipoProducao(EnumTipoProducao.ATIVIDADE_ADMINISTRATIVA);
 		this.administrativa = administrativa;
 	}
 
@@ -125,6 +130,8 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity
 	public void setOutraAdministrativa(Producao outraAdministrativa) {
 		outraAdministrativa
 				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		outraAdministrativa
+				.setTipoProducao(EnumTipoProducao.ATIVIDADE_ADMINISTRATIVA_OUTRAS);
 		this.outraAdministrativa = outraAdministrativa;
 	}
 
@@ -145,13 +152,22 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity
 	public void setRepresentacaoFora(Producao representacaoFora) {
 		representacaoFora
 				.setTipoAtividade(EnumTipoAtividade.ATIVIDADE_ADMINISTRATIVA_REPRESENTACAO);
+		representacaoFora
+				.setTipoProducao(EnumTipoProducao.ATIVIDADE_REPRESENTACAO);
 		this.representacaoFora = representacaoFora;
 	}
 
+	/**
+	 * Id
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Altera id
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}

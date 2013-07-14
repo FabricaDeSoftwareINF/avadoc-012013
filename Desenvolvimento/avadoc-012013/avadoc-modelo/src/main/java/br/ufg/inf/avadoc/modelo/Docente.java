@@ -18,14 +18,26 @@ import javax.persistence.Id;
 public class Docente extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 1556372292607007986L;
 
+	/**
+	 * Id do docente
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_docente")
 	private Long id;
 
+	/**
+	 * Matricula do docente avaliado
+	 */
 	private String matricula;
+	/**
+	 * Nome do docente avaliado
+	 */
 	private String nome;
 
+	/**
+	 * Construtor
+	 */
 	public Docente() {
 		matricula = "";
 		nome = "";
@@ -58,10 +70,17 @@ public class Docente extends AbstractEntity implements Serializable {
 		return nome;
 	}
 
+	/**
+	 * Id do docente
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Altera id do docente
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}

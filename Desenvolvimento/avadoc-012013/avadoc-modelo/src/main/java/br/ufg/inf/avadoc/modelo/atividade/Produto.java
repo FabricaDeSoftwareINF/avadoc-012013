@@ -121,10 +121,17 @@ public class Produto extends AbstractEntity implements Serializable {
 		this.producao = producao;
 	}
 
+	/**
+	 * Id
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Altera id
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}

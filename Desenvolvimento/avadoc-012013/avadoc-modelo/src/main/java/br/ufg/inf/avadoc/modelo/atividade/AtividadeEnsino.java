@@ -158,10 +158,17 @@ public class AtividadeEnsino extends AbstractEntity implements IAtividade {
 		this.posGradHorasAulaSemanaisDistancia = posGradHorasAulaSemanaisDistancia;
 	}
 
+	/**
+	 * id
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Altera id
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
