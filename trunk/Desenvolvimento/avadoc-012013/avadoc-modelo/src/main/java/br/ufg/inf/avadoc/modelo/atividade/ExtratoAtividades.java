@@ -6,8 +6,10 @@ package br.ufg.inf.avadoc.modelo.atividade;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +39,7 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 	@Column(name = "id_extrato_atividades")
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_docente")
 	private Docente docente;
 	/**
@@ -53,31 +55,31 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 	/**
 	 * Atividades de ensino
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_atividade_ensino")
 	private AtividadeEnsino atividadeEnsino;
 	/**
 	 * Atividades de produção intelectual
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_producao_intelectual")
 	private ProducaoIntelectual producaoIntelectual;
 	/**
 	 * Atividades de pesquisa e extensão
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_atividade_pesquisa_extensao")
 	private AtividadePesquisaExtensao atividadePesquisaExtensao;
 	/**
 	 * Atividades administrativas e de representação
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_atividade_administrativa_representacao")
 	private AtividadeAdministrativaRepresentacao atividadeAdministrativaRepresentacao;
 	/**
 	 * Outras atividades
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_atividade_outra")
 	private AtividadeOutra atividadeOutra;
 

@@ -2,11 +2,14 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
@@ -30,18 +33,22 @@ public class AtividadeAdministrativaRepresentacao extends AbstractEntity
 	/**
 	 * Atividades de direção ou de função gratificada
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao direcaoFuncaoGratificada;
 	/**
 	 * Atividades administrativas
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao administrativa;
 	/**
 	 * Outras atividades administrativas
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao outraAdministrativa;
 	/**
 	 * Atividades de representação fora da UFG
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao representacaoFora;
 
 	public AtividadeAdministrativaRepresentacao() {

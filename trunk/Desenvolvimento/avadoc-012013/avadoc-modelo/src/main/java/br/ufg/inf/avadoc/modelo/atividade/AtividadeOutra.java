@@ -2,10 +2,14 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
@@ -16,6 +20,7 @@ import br.ufg.inf.avadoc.modelo.AbstractEntity;
  * Outras atividades
  * 
  */
+@Entity
 public class AtividadeOutra extends AbstractEntity implements IAtividade,
 		Serializable {
 	private static final long serialVersionUID = 5832616413995668556L;
@@ -27,14 +32,17 @@ public class AtividadeOutra extends AbstractEntity implements IAtividade,
 	/**
 	 * Atividades Acadêmicas - Orientação
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao orientacao;
 	/**
 	 * Atividades Acadêmicas – Bancas e Cursos
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao bancaCurso;
 	/**
 	 * Atividades de Aprendizado e Aperfeiçoamento
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao aprendizadoAperfeicoamento;
 
 	public AtividadeOutra() {
