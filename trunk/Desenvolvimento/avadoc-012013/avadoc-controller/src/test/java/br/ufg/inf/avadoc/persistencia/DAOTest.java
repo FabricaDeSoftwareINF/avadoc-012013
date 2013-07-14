@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,80 +43,76 @@ public class DAOTest {
 	private SessionFactory sessionFactory;
 	
 	/**
-	 * Retorna configurações de conexão com o banco de dados
+	 * Retorna configurações de conexão com o banco de dados (Postgre ou MySQL)
 	 * @return sessionFactory
 	 */
 	private static SessionFactory buildSessionFactory() {
-        try {
-        	try{
-			Connection Conn = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/?user=postgres&password=postgres");
-			Statement s = Conn.createStatement();
-			s.executeUpdate("CREATE DATABASE avadoc");
-        	} catch (Exception e){
-            	System.err.println(e.getMessage());
-        	}
+		try {
+			mySqlCreate();
+			AnnotationConfiguration configuration = new AnnotationConfiguration();
+			configuration.addAnnotatedClass(Usuario.class);
+			configuration.setProperty("hibernate.dialect",
+					"org.hibernate.dialect.MySQLDialect");
+			configuration.setProperty("hibernate.connection.driver_class",
+					"com.mysql.jdbc.Driver");
+			configuration.setProperty("hibernate.connection.url",
+					"jdbc:mysql://localhost/avadoctest");
+			configuration.setProperty("hibernate.connection.username", "root");
+			configuration.setProperty("hibernate.connection.password", "admin");
+			configuration.setProperty("hibernate.hbm2ddl.auto", "update");
+			configuration.addAnnotatedClass(Docente.class);
+			configuration
+					.addAnnotatedClass(AtividadeAdministrativaRepresentacao.class);
+			configuration.addAnnotatedClass(AtividadeEnsino.class);
+			configuration.addAnnotatedClass(AtividadeOutra.class);
+			configuration.addAnnotatedClass(AtividadePesquisaExtensao.class);
+			configuration.addAnnotatedClass(ProducaoIntelectual.class);
+			configuration.addAnnotatedClass(Producao.class);
+			configuration.addAnnotatedClass(Produto.class);
+			configuration.addAnnotatedClass(ExtratoAtividades.class);
 
-        		AnnotationConfiguration configuration = new AnnotationConfiguration();
-        		configuration.addAnnotatedClass(Usuario.class);
-        		configuration.setProperty("hibernate.dialect",
-        				"org.hibernate.dialect.PostgreSQLDialect");
-        		configuration.setProperty("hibernate.connection.driver_class",
-        				"org.postgresql.Driver");
-        		configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost/avadoc");
-        		configuration.setProperty("hibernate.connection.username", "postgres");
-        		configuration.setProperty("hibernate.connection.password", "postgres");
-        		configuration.setProperty("hibernate.hbm2ddl.auto", "update");
-        		configuration.addAnnotatedClass(Docente.class);
-        		configuration.addAnnotatedClass(AtividadeAdministrativaRepresentacao.class);
-        		configuration.addAnnotatedClass(AtividadeEnsino.class);
-        		configuration.addAnnotatedClass(AtividadeOutra.class);
-        		configuration.addAnnotatedClass(AtividadePesquisaExtensao.class);
-        		configuration.addAnnotatedClass(ProducaoIntelectual.class);
-        		configuration.addAnnotatedClass(Producao.class);
-        		configuration.addAnnotatedClass(Produto.class);
-        		configuration.addAnnotatedClass(ExtratoAtividades.class);
-        		
-        		System.out.println("Postgres");
-                return configuration.buildSessionFactory();
-        }
-        catch (Throwable ex) {
-			try {
-				Connection Conn = DriverManager
-						.getConnection("jdbc:mysql://localhost/?user=root&password=admin");
-				Statement s = Conn.createStatement();
-				s.executeUpdate("CREATE DATABASE avadoc");
-			} catch (Exception e) {
-				System.err.println(e.getMessage());
-			}
-        	AnnotationConfiguration configuration = new AnnotationConfiguration();
-    		configuration.addAnnotatedClass(Usuario.class);
-    		configuration.setProperty("hibernate.dialect",
-    				"org.hibernate.dialect.MySQLDialect");
-    		configuration.setProperty("hibernate.connection.driver_class",
-    				"com.mysql.jdbc.Driver");
-    		configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost/avadoc");
-    		configuration.setProperty("hibernate.connection.username", "root");
-    		configuration.setProperty("hibernate.connection.password", "admin");
-    		configuration.setProperty("hibernate.hbm2ddl.auto", "update");
-    		configuration.addAnnotatedClass(Docente.class);
-    		configuration.addAnnotatedClass(AtividadeAdministrativaRepresentacao.class);
-    		configuration.addAnnotatedClass(AtividadeEnsino.class);
-    		configuration.addAnnotatedClass(AtividadeOutra.class);
-    		configuration.addAnnotatedClass(AtividadePesquisaExtensao.class);
-    		configuration.addAnnotatedClass(ProducaoIntelectual.class);
-    		configuration.addAnnotatedClass(Producao.class);
-    		configuration.addAnnotatedClass(Produto.class);
-    		configuration.addAnnotatedClass(ExtratoAtividades.class);
-    		
-    		System.out.println("MySql");
-            return configuration.buildSessionFactory();	
-        }
-    }
+			System.out.println("MySql");
+			return configuration.buildSessionFactory();
+		} catch (Throwable ex) {
+			postgreSqlCreate();
+			AnnotationConfiguration configuration = new AnnotationConfiguration();
+			configuration.addAnnotatedClass(Usuario.class);
+			configuration.setProperty("hibernate.dialect",
+					"org.hibernate.dialect.PostgreSQLDialect");
+			configuration.setProperty("hibernate.connection.driver_class",
+					"org.postgresql.Driver");
+			configuration.setProperty("hibernate.connection.url",
+					"jdbc:postgresql://localhost:5432/avadoctest");
+			configuration.setProperty("hibernate.connection.username",
+					"postgres");
+			configuration.setProperty("hibernate.connection.password",
+					"postgres");
+			configuration.setProperty("hibernate.hbm2ddl.auto", "update");
+			configuration.addAnnotatedClass(Docente.class);
+			configuration
+					.addAnnotatedClass(AtividadeAdministrativaRepresentacao.class);
+			configuration.addAnnotatedClass(AtividadeEnsino.class);
+			configuration.addAnnotatedClass(AtividadeOutra.class);
+			configuration.addAnnotatedClass(AtividadePesquisaExtensao.class);
+			configuration.addAnnotatedClass(ProducaoIntelectual.class);
+			configuration.addAnnotatedClass(Producao.class);
+			configuration.addAnnotatedClass(Produto.class);
+			configuration.addAnnotatedClass(ExtratoAtividades.class);
 
+			System.out.println("Postgres");
+			return configuration.buildSessionFactory();
+		}
+	}
+	
 	//@Before // linha comentada para permitir construção no Hudson
 	public void setUp() throws Exception {
 		sessionFactory = buildSessionFactory();
+	}
+	
+	//@After // linha comentada para permitir construção no Hudson
+	public void tearDown() {
+		mySqlDrop();
+		postgreSqlDrop();
 	}
 
 	//@Test // linha comentada para permitir construção no Hudson
@@ -127,10 +124,53 @@ public class DAOTest {
 		Usuario u = new Usuario();
 		u.setNome("usuario teste");
 		dao.inserir(u);
-		dao.salvar(u);
 		List<Usuario> list = (List<Usuario>) dao.listar();
 		assertNotNull(list);
 		assertEquals("usuario teste", list.get(0).getNome());
+	}
+	
+	//@Test // linha comentada para permitir construção no Hudson
+	/**
+	 * Teste de alteração de usuário
+	 */
+	public void atualizarUsuarioTest() {
+		UsuarioDAO dao = new UsuarioDAOImpl(sessionFactory);
+		Usuario u = new Usuario();
+		u.setNome("usuario teste atualização");
+		Long id = (Long) dao.inserir(u);
+		
+		Usuario usuarioAAtualizar = dao.obter(id);
+		assertEquals("usuario teste atualização", usuarioAAtualizar.getNome());
+		
+		usuarioAAtualizar.setNome("usuario teste atualizado");
+		usuarioAAtualizar.setLogin("usuarioTeste");
+		usuarioAAtualizar.setSenha("senhaHASH");
+		dao.alterar(usuarioAAtualizar);
+		
+		Usuario usuarioAtualizado = dao.obter(id);
+		
+		assertNotNull(usuarioAtualizado);
+		assertEquals("usuario teste atualizado", usuarioAtualizado.getNome());
+		assertEquals("usuarioTeste", usuarioAtualizado.getLogin());
+		assertEquals("senhaHASH", usuarioAtualizado.getSenha());
+	}
+	
+	//@Test // linha comentada para permitir construção no Hudson
+	/**
+	 * Teste de exclusão de usuário
+	 */
+	public void excluirUsuarioTest() {
+		UsuarioDAO dao = new UsuarioDAOImpl(sessionFactory);
+		Usuario u = new Usuario();
+		u.setNome("usuario teste exclusão");
+		Long id = (Long) dao.inserir(u);
+		
+		Usuario usuarioARemover = dao.obter(id);
+		assertEquals("usuario teste exclusão", usuarioARemover.getNome());
+		
+		dao.remover(usuarioARemover);
+		usuarioARemover = dao.obter(id);
+		assertEquals(null, usuarioARemover);
 	}
 	
 	//@Test // linha comentada para permitir construção no Hudson
@@ -141,13 +181,11 @@ public class DAOTest {
 		ExtratoAtividadesDAO dao = new ExtratoAtividadesDAOImpl(sessionFactory);
 		ExtratoAtividades extratoAtividades = new ExtratoAtividades();
 		extratoAtividades = exemploExtrato();
-		dao.inserir(extratoAtividades);
-		dao.salvar(extratoAtividades);
-		List<ExtratoAtividades> list = (List<ExtratoAtividades>) dao.listar();
+		Long id = (Long) dao.inserir(extratoAtividades);
 		
-		ExtratoAtividades extrato = list.get(0);
+		ExtratoAtividades extrato = dao.obter(id);
 		
-		assertNotNull(list);
+		assertNotNull(extrato);
 		
 		AtividadeEnsino atividadeEnsino = extrato.getAtividadeEnsino();
 		ProducaoIntelectual producaoIntelectual = extrato
@@ -189,12 +227,48 @@ public class DAOTest {
 		
 		assertEquals(892, extrato.getPontos());
 	}
+	
+	//@Test // linha comentada para permitir construção no Hudson
+	/**
+	 * Teste de alteração de extrato de atividades
+	 */
+	public void atualizarExtratoAtividadesTest() {
+		ExtratoAtividadesDAO dao = new ExtratoAtividadesDAOImpl(sessionFactory);
+		ExtratoAtividades extratoAtividades = new ExtratoAtividades();
+		extratoAtividades = exemploExtrato();
+		Long id = (Long) dao.inserir(extratoAtividades);
+		
+		ExtratoAtividades extrato = dao.obter(id);
+		extrato.getDocente().setMatricula("54321");
+		dao.alterar(extrato);
+		
+		ExtratoAtividades extratoAlterado = dao.obter(id);
+		assertNotNull(extratoAlterado);
+		assertEquals("54321", extratoAlterado.getDocente().getMatricula());
+	}
+	
+	//@Test // linha comentada para permitir construção no Hudson
+	/**
+	 * Teste de exclusão de extrato de atividades
+	 */
+	public void excluirExtratoAtividadesTest() {
+		ExtratoAtividadesDAO dao = new ExtratoAtividadesDAOImpl(sessionFactory);
+		ExtratoAtividades extratoAtividades = new ExtratoAtividades();
+		extratoAtividades = exemploExtrato();
+		Long id = (Long) dao.inserir(extratoAtividades);
+		
+		ExtratoAtividades extrato = dao.obter(id);
+		dao.remover(extrato);
+		
+		ExtratoAtividades extratoExcluido = dao.obter(id);
+		assertEquals(null, extratoExcluido);
+	}
 
 	/**
 	 * Extrato de atividades para teste
 	 * @return extrato
 	 */
-	private ExtratoAtividades exemploExtrato(){
+	private static ExtratoAtividades exemploExtrato(){
 		String xml = null;
 
 		try {
@@ -206,5 +280,52 @@ public class DAOTest {
 			e.printStackTrace();
 		}
 		return XmlExtratoAtividades.getExtrato(xml);
+	}
+	
+	/**
+	 * Cria ou exclui uma base de dados
+	 * 
+	 * @param comando
+	 *            CREATE or DROP
+	 */
+	private static void databasePG(String comando){
+		try {
+			Connection Conn = DriverManager
+					.getConnection("jdbc:postgresql://localhost:5432/?user=postgres&password=postgres");
+			Statement s = Conn.createStatement();
+			s.executeUpdate(comando + " DATABASE avadoctest");
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Cria ou exclui uma base de dados
+	 * 
+	 * @param comando
+	 *            CREATE or DROP
+	 */
+	private static void databaseMySql(String comando) {
+		try {
+			Connection Conn = DriverManager
+					.getConnection("jdbc:mysql://localhost/?user=root&password=admin");
+			Statement s = Conn.createStatement();
+			s.executeUpdate(comando + " DATABASE avadoctest");
+		} catch (Exception ex) {
+			System.err.println(ex.getMessage());
+		}
+	}
+	
+	private static void postgreSqlCreate() {
+		databasePG("CREATE");
+	}
+	private static void mySqlCreate() {
+		databaseMySql("CREATE");
+	}
+	private void mySqlDrop() {
+		databaseMySql("DROP");
+	}
+	private void postgreSqlDrop() {
+		databasePG("DROP");
 	}
 }
