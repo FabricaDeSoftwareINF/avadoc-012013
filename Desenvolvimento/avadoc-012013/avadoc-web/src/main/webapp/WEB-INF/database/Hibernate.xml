@@ -33,6 +33,14 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 			<list>
 				<value>br.ufg.inf.avadoc.modelo.Docente</value>
 				<value>br.ufg.inf.avadoc.modelo.Usuario</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.Produto</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.Producao</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.AtividadeEnsino</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.ProducaoIntelectual</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.AtividadePesquisaExtensao</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.AtividadeAdministrativaRepresentacao</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.AtividadeOutra</value>
+				<value>br.ufg.inf.avadoc.modelo.atividade.ExtratoAtividades</value>
 			</list>
 		</property>
 

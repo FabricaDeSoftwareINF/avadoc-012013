@@ -2,11 +2,14 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
@@ -30,10 +33,12 @@ public class AtividadePesquisaExtensao extends AbstractEntity implements
 	/**
 	 * Atividades de pesquisa
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao pesquisa;
 	/**
 	 * Atividades de Extensão
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao extensao;
 
 	public AtividadePesquisaExtensao() {

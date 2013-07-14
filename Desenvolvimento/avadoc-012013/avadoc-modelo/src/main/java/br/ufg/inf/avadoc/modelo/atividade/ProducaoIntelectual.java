@@ -2,11 +2,14 @@ package br.ufg.inf.avadoc.modelo.atividade;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.ufg.inf.avadoc.enums.EnumTipoAtividade;
 import br.ufg.inf.avadoc.modelo.AbstractEntity;
@@ -29,18 +32,22 @@ public class ProducaoIntelectual extends AbstractEntity implements IAtividade,
 	/**
 	 * Produçao Científica
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao producaoCientifica;
 	/**
 	 * Produção Artística e Cultural
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao producaoArtisticaCultural;
 	/**
 	 * Produção Técnica e Tecnológica
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao producaoTecnicaTecnologica;
 	/**
 	 * Outros tipos de produção
 	 */
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Producao producaoOutra;
 
 	@Override
