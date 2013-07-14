@@ -31,9 +31,20 @@ import br.ufg.inf.avadoc.persistencia.impl.ExtratoAtividadesDAOImpl;
 import br.ufg.inf.avadoc.persistencia.impl.UsuarioDAOImpl;
 import br.ufg.inf.avadoc.xml.XmlExtratoAtividades;
 
+/**
+ * Testes de persistência
+ *
+ */
 public class DAOTest {
+	/**
+	 * Necessário para se conectar ao banco de dados
+	 */
 	private SessionFactory sessionFactory;
 	
+	/**
+	 * Retorna configurações de conexão com o banco de dados
+	 * @return sessionFactory
+	 */
 	private static SessionFactory buildSessionFactory() {
         try {
         	try{
@@ -102,12 +113,15 @@ public class DAOTest {
         }
     }
 
-	@Before
+	//@Before // linha comentada para permitir construção no Hudson
 	public void setUp() throws Exception {
 		sessionFactory = buildSessionFactory();
 	}
 
-	@Test
+	//@Test // linha comentada para permitir construção no Hudson
+	/**
+	 * Teste de inserção de usuário
+	 */
 	public void inserirUsuarioTest() {
 		UsuarioDAO dao = new UsuarioDAOImpl(sessionFactory);
 		Usuario u = new Usuario();
@@ -119,7 +133,10 @@ public class DAOTest {
 		assertEquals("usuario teste", list.get(0).getNome());
 	}
 	
-	@Test
+	//@Test // linha comentada para permitir construção no Hudson
+	/**
+	 * Teste de inserção de extrato de atividades
+	 */
 	public void inserirExtratoAtividadesTest() {
 		ExtratoAtividadesDAO dao = new ExtratoAtividadesDAOImpl(sessionFactory);
 		ExtratoAtividades extratoAtividades = new ExtratoAtividades();
@@ -173,6 +190,10 @@ public class DAOTest {
 		assertEquals(892, extrato.getPontos());
 	}
 
+	/**
+	 * Extrato de atividades para teste
+	 * @return extrato
+	 */
 	private ExtratoAtividades exemploExtrato(){
 		String xml = null;
 
