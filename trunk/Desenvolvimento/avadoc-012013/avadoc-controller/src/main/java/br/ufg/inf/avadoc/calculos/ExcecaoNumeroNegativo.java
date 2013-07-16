@@ -1,7 +1,7 @@
 /**
  * Sistema de Avaliação do Docente - SAD
  */
-package calculos;
+package br.ufg.inf.avadoc.calculos;
 
 /**
  * Exceção lançada caso algum número negativo seja inserido no cálculo das

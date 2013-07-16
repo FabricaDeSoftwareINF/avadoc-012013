@@ -1,4 +1,4 @@
-package calculos;
+package br.ufg.inf.avadoc.calculos;
 
 /**
  * Classe a qual verifica a aprovacao de um docente.
