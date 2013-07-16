@@ -1,4 +1,4 @@
-package calculos;
+package br.ufg.inf.avadoc.calculos;
 
 public class Nota {
 
