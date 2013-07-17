@@ -55,8 +55,7 @@
 	        
 	        <h:outputLabel value="Arquivo:" /> 
 	        
-	        <p:fileUpload fileUploadListener="#{importacaoController.upload}" mode="advanced"  
-            update="@all" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(xml)$/"/>   
+	        <p:fileUpload value="#{importacaoController.arquivo}" mode="simple"/>   
 		
 		</h:panelGrid>
 		
@@ -64,7 +63,7 @@
 					
 			<h:panelGrid columns="1" width="100%">
 	
-				<p:commandButton value="#{importacaoController.importacao ? 'Importação' : 'Exportação'}" style="width:120px;"/>
+				<p:commandButton ajax="false" action="#{importacaoController.upload()}" value="#{importacaoController.importacao ? 'Importação' : 'Exportação'}" style="width:120px;"/>
 	
 			</h:panelGrid>
 	

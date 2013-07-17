@@ -3,7 +3,6 @@ package br.ufg.inf.avadoc.controller;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -21,11 +20,13 @@ public class ImportacaoController extends Controller {
 	private Boolean renderedDocente = Boolean.TRUE;
 
 	private UploadedFile arquivo;
-
-	public void upload(FileUploadEvent event) {
+	
+	public void upload() {
 		if (importacao) {
-			FacesMessage msg = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
-			FacesContext.getCurrentInstance().addMessage(null, msg);
+			if (arquivo != null) {
+				FacesMessage msg = new FacesMessage("Succesful", arquivo.getFileName() + " is uploaded.");
+				FacesContext.getCurrentInstance().addMessage(null, msg);
+			}
 		}
 	}
 
