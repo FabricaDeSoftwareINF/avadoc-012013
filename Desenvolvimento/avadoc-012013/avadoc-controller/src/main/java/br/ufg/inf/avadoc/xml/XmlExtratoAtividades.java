@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.jopendocument.dom.spreadsheet.SpreadSheet;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -26,6 +27,7 @@ import br.ufg.inf.avadoc.modelo.atividade.Produto;
 import br.ufg.inf.avadoc.modelo.atividade.ProdutoPontosAnuais;
 import br.ufg.inf.avadoc.modelo.atividade.ProdutoPontosHora;
 import br.ufg.inf.avadoc.modelo.atividade.ProdutoPontosMensais;
+import br.ufg.inf.avadoc.ods.OdsGerador;
 
 /**
  * XmlExtratoAtividades
@@ -33,8 +35,17 @@ import br.ufg.inf.avadoc.modelo.atividade.ProdutoPontosMensais;
  * Auxilia na leitura do extrato de atividades contido no xml recebido do SICAD.
  * 
  */
-public class XmlExtratoAtividades {
-	private XmlExtratoAtividades() {
+public class XmlExtratoAtividades implements Runnable {
+
+	private String arquivoXml;
+
+	private ExtratoAtividades extrato;
+
+	private SpreadSheet odsExport;
+
+	public XmlExtratoAtividades(String xml) {
+		this.arquivoXml = xml;
+		extrato = new ExtratoAtividades();
 	}
 
 	/**
@@ -379,6 +390,40 @@ public class XmlExtratoAtividades {
 		}
 
 		return producao;
+	}
+
+	@SuppressWarnings("static-access")
+	@Override
+	public void run() {
+		
+		extrato = this.getExtrato(this.arquivoXml);
+		
+		odsExport = OdsGerador.gerarPontuacaoOds(extrato);
+		
+	}
+
+	public String getArquivoXml() {
+		return arquivoXml;
+	}
+
+	public void setArquivoXml(String arquivoXml) {
+		this.arquivoXml = arquivoXml;
+	}
+
+	public ExtratoAtividades getExtrato() {
+		return extrato;
+	}
+
+	public void setExtrato(ExtratoAtividades extrato) {
+		this.extrato = extrato;
+	}
+
+	public SpreadSheet getOdsExport() {
+		return odsExport;
+	}
+
+	public void setOdsExport(SpreadSheet odsExport) {
+		this.odsExport = odsExport;
 	}
 
 }
