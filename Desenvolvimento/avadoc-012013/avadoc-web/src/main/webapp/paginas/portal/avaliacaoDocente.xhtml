@@ -23,19 +23,28 @@
 		
 	<h:panelGrid columns="2" cellpadding="10">
 	
-		<h:outputLabel value="Selecione o Docente a ser avaliado:" />
+		<h:outputLabel value="Selecione o Docente a ser avaliado:" id="nomeDocente"/>
 		
 		<p:selectOneMenu >  
             <f:selectItem itemLabel="Selecione" itemValue="null" />  
-            <f:selectItem itemLabel="Ciclano" itemValue="idCiclano" />  
-            <f:selectItem itemLabel="Beutrano" itemValue="idBeutrano" />  
+            <f:selectItem itemLabel="Adriana Silveira de Souza" itemValue="adriana" />  
+            <f:selectItem itemLabel="Ana Paula Laboissière Ambrósio" itemValue="apaula" />  
+        	<f:selectItem itemLabel="Anderson da Silva Soares" itemValue="anderson" />  
+            <f:selectItem itemLabel="André Luiz Moura" itemValue="andreluiz" />  
+        	<f:selectItem itemLabel="Auri Marcelo Rizzo Vincenzi" itemValue="auri" />  
+            <f:selectItem itemLabel="Bruno de Oliveira Silvestre" itemValue="brunoos" />  
+        	<f:selectItem itemLabel="Cássio Leonardo Rodrigues" itemValue="cassio" />  
+            <f:selectItem itemLabel="Cedric Luiz de Carvalho" itemValue="cedric" />  
+        
+        
         </p:selectOneMenu>
 		
-		<h:outputLabel value="Tipo de Avaliação:" />
+		<h:outputLabel value="Tipo de Avaliação:" id="tipoAvaliacao" />
 		
 		<p:selectOneMenu >  
             <f:selectItem itemLabel="Selecione" itemValue="null" />  
             <f:selectItem itemLabel="Estagio Probatorio" itemValue="estagioProbatorio" />  
+        	<f:selectItem itemLabel="Progressão Horizontal" itemValue="progressaoHorizontal" />
         </p:selectOneMenu>
 	
 	</h:panelGrid>
