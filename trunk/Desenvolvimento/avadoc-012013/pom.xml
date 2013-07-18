@@ -13,7 +13,7 @@
   	
   	<module>avadoc-web</module>
 
-  	<module>avadoc-testeFuncional</module>
+  	
   </modules>
   
   	<properties>
