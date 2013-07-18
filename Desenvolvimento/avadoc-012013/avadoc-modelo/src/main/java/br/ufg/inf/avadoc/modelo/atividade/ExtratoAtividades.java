@@ -39,8 +39,8 @@ public class ExtratoAtividades extends AbstractEntity implements Serializable {
 	@Column(name = "id_extrato_atividades")
 	private Long id;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_docente")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_docente", nullable = false)
 	private Docente docente;
 	/**
 	 * Data inicial das atividades

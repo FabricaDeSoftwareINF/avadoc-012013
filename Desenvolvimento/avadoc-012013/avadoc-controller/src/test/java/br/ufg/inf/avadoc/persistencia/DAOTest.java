@@ -7,7 +7,9 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.IOUtils;
 import org.hibernate.SessionFactory;
@@ -17,6 +19,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.ufg.inf.avadoc.modelo.Docente;
+import br.ufg.inf.avadoc.modelo.Nota;
 import br.ufg.inf.avadoc.modelo.Usuario;
 import br.ufg.inf.avadoc.modelo.atividade.AtividadeAdministrativaRepresentacao;
 import br.ufg.inf.avadoc.modelo.atividade.AtividadeEnsino;
@@ -70,6 +73,7 @@ public class DAOTest {
 			configuration.addAnnotatedClass(Producao.class);
 			configuration.addAnnotatedClass(Produto.class);
 			configuration.addAnnotatedClass(ExtratoAtividades.class);
+			configuration.addAnnotatedClass(Nota.class);
 
 			System.out.println("MySql");
 			return configuration.buildSessionFactory();
@@ -123,10 +127,10 @@ public class DAOTest {
 		UsuarioDAO dao = new UsuarioDAOImpl(sessionFactory);
 		Usuario u = new Usuario();
 		u.setNome("usuario teste");
-		dao.inserir(u);
-		List<Usuario> list = (List<Usuario>) dao.listar();
-		assertNotNull(list);
-		assertEquals("usuario teste", list.get(0).getNome());
+		Long id = (Long) dao.inserir(u);
+		Usuario usuarioObtido = dao.obter(id);
+		assertNotNull(usuarioObtido);
+		assertEquals("usuario teste", usuarioObtido.getNome());
 	}
 	
 	//@Test // linha comentada para permitir construção no Hudson
@@ -236,15 +240,23 @@ public class DAOTest {
 		ExtratoAtividadesDAO dao = new ExtratoAtividadesDAOImpl(sessionFactory);
 		ExtratoAtividades extratoAtividades = new ExtratoAtividades();
 		extratoAtividades = exemploExtrato();
-		Long id = (Long) dao.inserir(extratoAtividades);
 		
+		Long id = (Long) dao.inserir(extratoAtividades);
 		ExtratoAtividades extrato = dao.obter(id);
-		extrato.getDocente().setMatricula("54321");
+		
+		Date dataNova = null;
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			dataNova = dateFormat.parse("31/12/2013");
+			extrato.setDataFinal(dataNova);
+		} catch (ParseException e) {
+			System.err.println(e.getMessage());
+		}
 		dao.alterar(extrato);
 		
 		ExtratoAtividades extratoAlterado = dao.obter(id);
 		assertNotNull(extratoAlterado);
-		assertEquals("54321", extratoAlterado.getDocente().getMatricula());
+		assertEquals(dataNova, extratoAlterado.getDataFinal());
 	}
 	
 	//@Test // linha comentada para permitir construção no Hudson
@@ -255,6 +267,7 @@ public class DAOTest {
 		ExtratoAtividadesDAO dao = new ExtratoAtividadesDAOImpl(sessionFactory);
 		ExtratoAtividades extratoAtividades = new ExtratoAtividades();
 		extratoAtividades = exemploExtrato();
+		extratoAtividades.getDocente().setMatricula("99");
 		Long id = (Long) dao.inserir(extratoAtividades);
 		
 		ExtratoAtividades extrato = dao.obter(id);

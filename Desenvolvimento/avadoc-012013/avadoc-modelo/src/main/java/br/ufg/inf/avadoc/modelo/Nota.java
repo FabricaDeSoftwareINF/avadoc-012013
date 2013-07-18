@@ -1,6 +1,20 @@
 package br.ufg.inf.avadoc.modelo;
 
-public class Nota {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Nota extends AbstractEntity{
+	/**
+	 * Id da nota
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_nota")
+	private Long id;
 
 	private int quantidadeMeses;
 	private double nota;
@@ -19,6 +33,21 @@ public class Nota {
 
 	public void setQuantidadeMeses(int quantidadeMeses) {
 		this.quantidadeMeses = quantidadeMeses;
+	}
+
+	/**
+	 * Id da nota
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * Altera id da nota
+	 * @param id
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
