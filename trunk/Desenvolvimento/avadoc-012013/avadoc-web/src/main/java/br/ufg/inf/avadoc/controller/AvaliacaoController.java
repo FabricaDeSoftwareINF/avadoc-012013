@@ -18,12 +18,9 @@ public class AvaliacaoController extends Controller {
 	private DocenteBean docenteService;
 
 	public void metodo() {
+		
 
-		for (int i = 0; i < 100000; i++) {
-
-			System.out.println(i);
-
-		}
+		
 	}
 
 	public DocenteBean getDocenteService() {
