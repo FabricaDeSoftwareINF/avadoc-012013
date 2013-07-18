@@ -29,6 +29,7 @@ public class Docente extends AbstractEntity implements Serializable {
 	/**
 	 * Matricula do docente avaliado
 	 */
+	@Column(unique=true)
 	private String matricula;
 	/**
 	 * Nome do docente avaliado
